@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Switch direction for a saved or linked language before the first paint (i18n.js fills in the text)
+  (function () {
+    try {
+      var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('gs-lang');
+      if (l === 'en' || l === 'fa') {
+        var r = document.documentElement;
+        r.lang = l; r.dir = l === 'en' ? 'ltr' : 'rtl';
+        r.classList.add('i18n-pending');
+        setTimeout(function () { r.classList.remove('i18n-pending'); }, 2000);
+      }
+    } catch (e) {}
+  })();
+</script>
+<title>גורמה סבזי | מסעדה פרסית בתל אביב</title>
+<meta name="description" content="גורמה סבזי – מטבח פרסי ביתי ברחוב לוינסקי 47, תל אביב. חורש'ט סבזי, גונדי, קבב על גריל פחמים ועוד. משלוחים לתל אביב, הרצליה והסביבה.">
+<meta property="og:title" content="גורמה סבזי | מסעדה פרסית בתל אביב">
+<meta property="og:description" content="תבשילים פרסיים מסורתיים שמתבשלים לאט, כמו בבית. לוינסקי 47, תל אביב.">
+<meta property="og:image" content="https://eyal1999.github.io/gourmet-sabzi/images/feast.jpg">
+<meta property="og:url" content="https://eyal1999.github.io/gourmet-sabzi/">
+<meta property="og:type" content="restaurant">
+<link rel="icon" href="brand/favicon-32.png" sizes="32x32">
+<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<meta name="theme-color" content="#0d2e21">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;600;700&family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Gourmet Sabzi – גורמה סבזי",
+  "servesCuisine": "Persian",
+  "telephone": "+972-3-508-0709",
+  "url": "https://eyal1999.github.io/gourmet-sabzi/",
+  "image": "https://eyal1999.github.io/gourmet-sabzi/images/feast.jpg",
+  "logo": "https://eyal1999.github.io/gourmet-sabzi/brand/logo-mark-green.png",
+  "priceRange": "₪₪",
+  "email": "Gormesabzirest@gmail.com",
+  "foundingDate": "2016",
+  "founder": {"@type": "Person", "name": "Bijan Barhordary"},
+  "sameAs": ["https://www.facebook.com/gormesabzirestaurant/", "https://www.instagram.com/gorme_sabzi_rest/"],
+  "geo": {"@type": "GeoCoordinates", "latitude": 32.0597676, "longitude": 34.7723295},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Levinski St 47",
+    "addressLocality": "Tel Aviv-Yafo",
+    "addressCountry": "IL"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"], "opens": "11:00", "closes": "16:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "10:00", "closes": "17:00"}
+  ]
+}
+</script>
+
+<style>
+:root {
+  --green-900: #0d2e21;
+  --green-800: #123d2c;
+  --green-700: #1b5a40;
+  --green-100: #e6efe8;
+  --saffron: #d9a441;
+  --saffron-dark: #b9862a;
+  --pomegranate: #a3262f;
+  --cream: #faf6ee;
+  --paper: #ffffff;
+  --ink: #1f2420;
+  --ink-soft: #5b625d;
+  --line: #e8e1d3;
+  --radius: 18px;
+  --shadow: 0 12px 34px rgba(13, 46, 33, .12);
+  --serif: "Frank Ruhl Libre", Georgia, serif;
+  --sans: "Assistant", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --max: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 15px; letter-spacing: .08em;
+  color: var(--saffron-dark); text-transform: uppercase;
+}
+.eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+.section { padding: 104px 0; }
+.section-head { max-width: 640px; margin-bottom: 48px; }
+.section-head h2 { font-size: clamp(34px, 4.5vw, 52px); margin: 12px 0 14px; color: var(--green-900); }
+.section-head p { color: var(--ink-soft); margin: 0; font-size: 19px; }
+.center { text-align: center; margin-inline: auto; }
+.center .eyebrow::after { content: ""; width: 28px; height: 2px; background: currentColor; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 15px 28px; border-radius: 999px; font-weight: 700; font-size: 17px;
+  text-decoration: none; border: 2px solid transparent; cursor: pointer;
+  transition: transform .2s, background .2s, color .2s, box-shadow .2s;
+  white-space: nowrap;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn-gold { background: var(--saffron); color: var(--green-900); box-shadow: 0 8px 22px rgba(217,164,65,.35); }
+.btn-gold:hover { background: #e4b250; }
+.btn-ghost { border-color: rgba(255,255,255,.55); color: #fff; }
+.btn-ghost:hover { background: rgba(255,255,255,.12); }
+.btn-green { background: var(--green-800); color: #fff; }
+.btn-green:hover { background: var(--green-700); }
+
+/* Header */
+.header {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  transition: background .3s, box-shadow .3s, padding .3s;
+  padding: 20px 0;
+}
+.header.scrolled { background: rgba(13,46,33,.96); backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0,0,0,.15); padding: 12px 0; }
+.header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
+.logo-mark { width: 44px; height: 44px; flex: none; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.05; }
+.logo-text b { font-family: "Frank Ruhl Libre", Georgia, serif; font-size: 24px; font-weight: 900; }
+.logo-text small { font-family: "Assistant", system-ui, sans-serif; font-size: 12px; letter-spacing: .28em; opacity: .8; }
+.nav { display: flex; align-items: center; gap: 30px; margin-inline-start: auto; }
+.nav a { color: #fff; text-decoration: none; font-weight: 600; opacity: .9; }
+.nav a:hover { opacity: 1; color: var(--saffron); }
+.nav .btn { padding: 10px 22px; font-size: 16px; opacity: 1; }
+.nav .btn:hover { color: var(--green-900); }
+.menu-toggle { display: none; background: none; border: 0; color: #fff; padding: 6px; cursor: pointer; }
+.menu-toggle svg { width: 30px; height: 30px; }
+
+/* Hero */
+.hero {
+  position: relative; min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center; color: #fff; overflow: hidden;
+  background: var(--green-900);
+}
+.hero-bg { position: absolute; inset: 0; background: url("images/feast.jpg") center/cover no-repeat; transform: scale(1.04); }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(270deg, rgba(13,46,33,.94) 0%, rgba(13,46,33,.82) 42%, rgba(13,46,33,.35) 100%);
+}
+.hero .wrap { position: relative; z-index: 2; width: 100%; padding-top: 110px; padding-bottom: 80px; }
+.hero-content { max-width: 620px; }
+.hero .eyebrow { color: var(--saffron); }
+.hero h1 { font-size: clamp(46px, 7.4vw, 92px); font-weight: 900; margin: 18px 0 8px; }
+.hero h1 span { color: var(--saffron); }
+.hero .latin { font-family: "Frank Ruhl Libre", Georgia, serif; font-size: clamp(18px, 2vw, 22px); letter-spacing: .32em; opacity: .75; margin-bottom: 24px; }
+.hero p.lead { font-size: clamp(19px, 2vw, 22px); opacity: .92; margin: 0 0 36px; max-width: 540px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 52px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.18); }
+.hero-meta div { display: flex; flex-direction: column; }
+.hero-meta b { font-family: var(--serif); font-size: 30px; color: var(--saffron); line-height: 1.1; }
+.hero-meta span { font-size: 15px; opacity: .8; }
+
+/* Pattern band */
+.pattern {
+  height: 22px;
+  background-color: var(--green-800);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22' viewBox='0 0 44 22'%3E%3Cpath d='M22 1l10 10-10 10-10-10zM0 11l-0 0M44 11' fill='none' stroke='%23d9a441' stroke-width='1.4'/%3E%3Ccircle cx='0' cy='11' r='2.4' fill='%23d9a441'/%3E%3Ccircle cx='44' cy='11' r='2.4' fill='%23d9a441'/%3E%3C/svg%3E");
+}
+
+/* About */
+.about-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 72px; align-items: center; }
+.about-media { position: relative; }
+.about-media img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4/3.4; object-fit: cover; width: 100%; }
+.about-media .float {
+  position: absolute; width: 46%; bottom: -36px; inset-inline-end: -28px; border: 7px solid var(--cream);
+  border-radius: var(--radius); aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow);
+}
+.about-text h2 { font-size: clamp(34px, 4.5vw, 50px); color: var(--green-900); margin: 12px 0 22px; }
+.about-text p { color: var(--ink-soft); margin: 0 0 18px; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+.pillar { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px; }
+.pillar svg { width: 30px; height: 30px; color: var(--green-700); margin-bottom: 8px; }
+.pillar b { display: block; font-size: 17px; color: var(--green-900); }
+.pillar span { font-size: 15px; color: var(--ink-soft); line-height: 1.4; display: block; }
+
+/* Signature dishes */
+.signature { background: var(--paper); }
+.dish-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.dish {
+  background: var(--cream); border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line); display: flex; flex-direction: column;
+  transition: transform .25s, box-shadow .25s;
+}
+.dish:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.dish-img { aspect-ratio: 16/10.5; overflow: hidden; position: relative; }
+.dish-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.dish:hover .dish-img img { transform: scale(1.06); }
+.tag {
+  position: absolute; top: 14px; inset-inline-start: 14px; background: rgba(255,255,255,.94); color: var(--green-800);
+  font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+}
+.tag.veg { background: var(--green-700); color: #fff; }
+.dish-body { padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+.dish-body .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.dish-body h3 { font-size: 24px; color: var(--green-900); }
+.dish-body .fa { font-family: "Frank Ruhl Libre", "Vazirmatn", Georgia, serif; font-size: 14px; color: var(--saffron-dark); letter-spacing: .06em; }
+.price { font-family: var(--serif); font-weight: 700; font-size: 22px; color: var(--pomegranate); white-space: nowrap; }
+.dish-body p { color: var(--ink-soft); font-size: 16px; margin: 10px 0 0; }
+
+/* Served with strip */
+.served {
+  margin-top: 56px; background: var(--green-800); color: #fff; border-radius: var(--radius);
+  padding: 30px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap;
+}
+.served h3 { font-size: 26px; }
+.served h3 small { display: block; font-family: var(--sans); font-size: 16px; font-weight: 400; opacity: .8; margin-top: 4px; }
+.served ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; }
+.served li { border: 1px solid rgba(217,164,65,.6); color: var(--saffron); padding: 6px 16px; border-radius: 999px; font-weight: 600; font-size: 16px; }
+
+/* Menu */
+.menu-tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+.menu-tab {
+  font: inherit; font-weight: 700; font-size: 17px; padding: 10px 22px; border-radius: 999px;
+  border: 1.5px solid var(--line); background: var(--paper); color: var(--green-900); cursor: pointer; transition: all .2s;
+}
+.menu-tab:hover { border-color: var(--green-700); }
+.menu-tab[aria-selected="true"] { background: var(--green-800); border-color: var(--green-800); color: #fff; }
+.menu-panel { display: none; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 40px 48px; box-shadow: 0 2px 0 rgba(0,0,0,.02); }
+.menu-panel.active { display: block; animation: fade .35s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.menu-note { text-align: center; color: var(--ink-soft); font-size: 16px; margin: -10px 0 28px; }
+.menu-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 64px; }
+.menu-item { padding: 18px 0; border-bottom: 1px dashed var(--line); }
+.menu-item .top { display: flex; align-items: baseline; gap: 12px; }
+.menu-item h4 { margin: 0; font-size: 20px; font-weight: 700; color: var(--green-900); }
+.menu-item .dots { flex: 1; border-bottom: 2px dotted #d6cdb8; transform: translateY(-5px); min-width: 20px; }
+.menu-item .price { font-size: 20px; }
+.menu-item p { margin: 4px 0 0; color: var(--ink-soft); font-size: 15.5px; line-height: 1.5; }
+.leaf { display: inline-block; width: 16px; height: 16px; vertical-align: -2px; margin-inline-start: 6px; color: var(--green-700); }
+.family {
+  display: grid; grid-template-columns: 1fr 1.1fr; gap: 0; border-radius: var(--radius); overflow: hidden;
+  background: var(--green-900); color: #fff;
+}
+.family img { width: 100%; height: 100%; object-fit: cover; min-height: 280px; }
+.family-body { padding: 44px; display: flex; flex-direction: column; justify-content: center; }
+.family-body h3 { font-size: 34px; margin: 10px 0 12px; }
+.family-body p { opacity: .85; margin: 0 0 22px; }
+.family-body .price { color: var(--saffron); font-size: 40px; margin-bottom: 22px; }
+.family-body .btn { align-self: flex-start; }
+
+/* Order CTA */
+.cta {
+  position: relative; color: #fff; text-align: center; overflow: hidden;
+  background: linear-gradient(rgba(13,46,33,.86), rgba(13,46,33,.9)), url("images/kabab.jpg") center/cover;
+}
+.cta h2 { font-size: clamp(36px, 5vw, 58px); margin: 14px 0; }
+.cta p { font-size: 20px; opacity: .88; max-width: 600px; margin: 0 auto 34px; }
+.cta .eyebrow { color: var(--saffron); }
+.cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.delivery-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px 40px; margin-top: 44px; font-size: 16px; opacity: .85; }
+.delivery-facts span { display: inline-flex; align-items: center; gap: 8px; }
+.delivery-facts svg { width: 20px; height: 20px; color: var(--saffron); }
+
+/* Visit */
+.visit-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 32px; align-items: stretch; }
+.info-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 38px; }
+.info-block + .info-block { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
+.info-block h3 { font-size: 22px; color: var(--green-900); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.info-block h3 svg { width: 22px; height: 22px; color: var(--saffron-dark); }
+.info-block p { margin: 0; color: var(--ink-soft); }
+.info-block a { color: var(--green-700); font-weight: 700; text-decoration: none; }
+.info-block a:hover { text-decoration: underline; }
+.hours { width: 100%; border-collapse: collapse; }
+.hours td { padding: 7px 0; color: var(--ink-soft); }
+.hours td:last-child { text-align: end; font-weight: 600; color: var(--ink); }
+.hours tr.today td { color: var(--green-700); font-weight: 700; }
+.hours tr.closed td:last-child { color: var(--pomegranate); }
+.status { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; padding: 4px 14px; border-radius: 999px; margin-bottom: 12px; }
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.status.open { background: var(--green-100); color: var(--green-700); }
+.status.shut { background: #f8e7e8; color: var(--pomegranate); }
+.map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 420px; background: var(--green-100); }
+.map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; }
+
+/* Footer */
+.footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 56px 0 32px; font-size: 16px; }
+.footer .top { display: flex; justify-content: space-between; align-items: center; gap: 28px; flex-wrap: wrap; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer nav a { text-decoration: none; }
+.footer nav a:hover { color: var(--saffron); }
+.footer .bottom { padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 14px; opacity: .7; }
+
+/* As seen on */
+.seen-on { display: block; background: var(--green-900); color: rgba(255,255,255,.82); text-decoration: none; padding: 18px 0; }
+.seen-on .wrap { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 34px; }
+.seen-on span { font-family: var(--serif); font-weight: 700; font-size: 19px; letter-spacing: .02em; transition: color .2s; }
+.seen-on .seen-label { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--saffron); letter-spacing: .06em; }
+.seen-on:hover span:not(.seen-label) { color: #fff; }
+
+/* Owner */
+.owner { display: flex; align-items: center; gap: 18px; margin-top: 26px; padding: 16px 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+.owner img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 3px solid var(--saffron); flex: none; background: var(--green-100); }
+.owner b { display: block; font-family: var(--serif); font-size: 21px; color: var(--green-900); line-height: 1.2; }
+.owner span { display: block; font-size: 15px; color: var(--ink-soft); }
+.owner-link { margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; padding: 0; font: inherit; font-size: 15.5px; font-weight: 700; color: var(--pomegranate); cursor: pointer; }
+.owner-link svg { width: 16px; height: 16px; }
+.owner-link:hover { text-decoration: underline; }
+
+/* Friday */
+.friday { background: var(--green-100); overflow: hidden; }
+.friday-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 40px; }
+.friday-head .section-head { margin-bottom: 0; }
+.friday-track {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 1fr); gap: 22px;
+  overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 16px; scrollbar-width: thin; scrollbar-color: var(--green-700) transparent;
+}
+.friday-track:focus-visible { outline: 2px solid var(--green-700); outline-offset: 6px; border-radius: 8px; }
+.fcard { scroll-snap-align: start; background: var(--paper); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(13,46,33,.08); min-width: 280px; }
+.fcard img { width: 100%; aspect-ratio: 16/11; object-fit: cover; }
+.fcard > div { padding: 18px 20px 22px; }
+.fcard h3 { font-size: 22px; color: var(--green-900); }
+.fcard .fa { font-family: "Frank Ruhl Libre", "Vazirmatn", Georgia, serif; font-size: 14px; color: var(--saffron-dark); letter-spacing: .06em; }
+.fcard p { margin: 8px 0 0; font-size: 15.5px; color: var(--ink-soft); line-height: 1.5; }
+
+/* Press */
+.press { background: var(--paper); }
+.pull-quote {
+  position: relative; margin: 0 auto 56px; max-width: 900px; text-align: center;
+  background: var(--green-900); color: #fff; border-radius: var(--radius); padding: 56px 48px 40px;
+}
+.pull-quote .qmark { width: 46px; height: 46px; color: var(--saffron); margin: 0 auto 12px; }
+.pull-quote blockquote { margin: 0; font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); line-height: 1.4; font-weight: 500; }
+.pull-quote figcaption { margin-top: 24px; font-size: 17px; opacity: .88; }
+.pull-quote figcaption b { color: var(--saffron); }
+.pull-quote figcaption a { display: block; margin-top: 8px; color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; }
+.pull-quote figcaption a:hover { color: #fff; text-decoration: underline; }
+.press-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.pcard {
+  font: inherit; text-align: start; color: inherit; text-decoration: none; cursor: pointer;
+  background: var(--cream); border: 1px solid var(--line); border-radius: 16px; padding: 0 0 18px; overflow: hidden;
+  display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s;
+}
+.pcard:hover, .pcard:focus-visible { transform: translateY(-4px); box-shadow: var(--shadow); }
+.pcard .thumb { position: relative; display: block; aspect-ratio: 16/9; overflow: hidden; background: var(--green-800); }
+.pcard .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.pcard:hover .thumb img { transform: scale(1.05); }
+.pcard .play {
+  position: absolute; inset: 50% auto auto 50%; width: 54px; height: 54px; transform: translate(-50%, -50%); border-radius: 50%;
+  background: rgba(13,46,33,.82); box-shadow: 0 0 0 3px rgba(217,164,65,.85);
+}
+.pcard .play::after { content: ""; position: absolute; inset: 50% auto auto 54%; transform: translate(-50%, -50%); border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent #fff; }
+a.pcard .play::after { content: "↗"; border: 0; color: #fff; font-size: 22px; font-weight: 700; inset: 50% auto auto 50%; line-height: 1; }
+.pcard .outlet { display: block; padding: 16px 18px 4px; font-size: 13.5px; font-weight: 700; color: var(--saffron-dark); letter-spacing: .03em; }
+.pcard .ptitle { display: block; padding: 0 18px; font-weight: 700; font-size: 17px; line-height: 1.4; color: var(--green-900); }
+
+/* Video modal */
+.video-modal { position: fixed; inset: 0; z-index: 100; background: rgba(5,18,12,.86); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.video-modal[hidden] { display: none; }
+.video-box { width: min(980px, 100%); background: #000; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.video-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px; padding-inline-start: 14px; background: var(--green-900); color: #fff; font-weight: 600; font-size: 16px; }
+.video-close { background: none; border: 0; color: #fff; font-size: 32px; line-height: 1; cursor: pointer; padding: 0 8px; }
+.video-frame { aspect-ratio: 16/9; }
+.video-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* Contact chips */
+.nav-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.info-block .chip, .chip {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 999px;
+  border: 1.5px solid var(--line); font-size: 15px; font-weight: 700; color: var(--green-800); text-decoration: none; transition: all .2s;
+}
+.chip svg { width: 17px; height: 17px; }
+.info-block .chip:hover { border-color: var(--green-700); background: var(--green-100); text-decoration: none; }
+.info-block p.small { font-size: 15px; margin-top: 12px; }
+.footer .social { display: flex; gap: 10px; }
+.footer .social a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; transition: all .2s; }
+.footer .social a:hover { border-color: var(--saffron); color: var(--saffron); }
+.footer .social svg { width: 19px; height: 19px; }
+.footer .bottom a { color: inherit; }
+
+/* Language switcher */
+.lang { position: relative; flex: none; }
+.lang-btn {
+  display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; border-radius: 999px;
+  border: 1.5px solid rgba(255,255,255,.4); background: transparent; color: #fff;
+  font: inherit; font-size: 15px; font-weight: 700; line-height: 1; cursor: pointer; transition: border-color .2s, color .2s;
+}
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { border-color: var(--saffron); color: var(--saffron); }
+.lang-btn svg { width: 18px; height: 18px; flex: none; }
+.lang-menu {
+  position: absolute; top: calc(100% + 10px); inset-inline-end: 0; z-index: 60; margin: 0; padding: 6px; list-style: none;
+  min-width: 170px; background: var(--paper); border-radius: 14px; box-shadow: 0 18px 44px rgba(0,0,0,.28);
+}
+.lang-menu[hidden] { display: none; }
+.lang-menu button {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 10px 12px; border: 0; border-radius: 10px; background: none; cursor: pointer;
+  font: inherit; font-size: 16px; font-weight: 600; line-height: 1.3; color: var(--green-900); text-align: start;
+}
+.lang-menu button:hover, .lang-menu button:focus-visible { background: var(--green-100); outline: none; }
+.lang-menu button[aria-checked="true"] { color: var(--green-700); }
+.lang-menu button[aria-checked="true"]::after { content: "✓"; color: var(--saffron-dark); font-weight: 700; }
+.lang-menu [lang="he"] { font-family: "Assistant", system-ui, sans-serif; }
+.lang-menu [lang="fa"] { font-family: "Vazirmatn", Tahoma, sans-serif; }
+
+/* English and Farsi */
+.i18n-pending body { visibility: hidden; }
+html[lang="en"] .hero h1 { font-size: clamp(42px, 6.4vw, 80px); }
+html[lang="en"] .dish-body .fa, html[lang="en"] .fcard .fa { letter-spacing: 0; }
+@media (min-width: 641px) {
+  html[dir="ltr"] .hero::before { background: linear-gradient(90deg, rgba(13,46,33,.94) 0%, rgba(13,46,33,.82) 42%, rgba(13,46,33,.35) 100%); }
+}
+html[lang="fa"] {
+  --serif: "Vazirmatn", "Frank Ruhl Libre", Georgia, serif;
+  --sans: "Vazirmatn", "Assistant", system-ui, sans-serif;
+}
+html[lang="fa"] body { line-height: 1.85; }
+html[lang="fa"] h1, html[lang="fa"] h2, html[lang="fa"] h3 { line-height: 1.45; }
+html[lang="fa"] .hero h1 { line-height: 1.25; }
+html[lang="fa"] .hero p.lead { line-height: 1.75; }
+html[lang="fa"] .eyebrow, html[lang="fa"] .seen-on span, html[lang="fa"] .pcard .outlet,
+html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; }
+
+/* Mobile sticky bar */
+.mobile-bar { display: none; }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .nav { gap: 20px; }
+  .nav a { font-size: 15.5px; }
+}
+@media (max-width: 1000px) {
+  .about-grid { grid-template-columns: 1fr; gap: 64px; }
+  .about-media { max-width: 640px; }
+  .dish-grid { grid-template-columns: 1fr 1fr; }
+  .visit-grid { grid-template-columns: 1fr; }
+  .menu-list { grid-template-columns: 1fr; }
+  .press-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 940px) {
+  .menu-toggle { display: block; }
+  .nav {
+    position: fixed; inset: 0 0 auto 0; top: 0; padding: 90px 24px 32px; flex-direction: column; align-items: stretch; gap: 6px;
+    background: var(--green-900); transform: translateY(-105%); transition: transform .35s ease; box-shadow: 0 16px 40px rgba(0,0,0,.3);
+  }
+  .nav.open { transform: none; }
+  .nav a { padding: 12px 4px; font-size: 20px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav .btn { margin-top: 14px; padding: 14px; border: 0; }
+  .logo, .menu-toggle { position: relative; z-index: 2; }
+  .header .wrap { gap: 12px; }
+  .lang { margin-inline-start: auto; z-index: 3; }
+  .lang-btn { padding: 6px 11px; }
+  .family { grid-template-columns: 1fr; }
+  .family img { min-height: 220px; max-height: 260px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 17px; padding-bottom: 76px; }
+  .wrap { padding: 0 16px; }
+  .section { padding: 72px 0; }
+  .hero::before { background: linear-gradient(0deg, rgba(13,46,33,.96) 0%, rgba(13,46,33,.8) 55%, rgba(13,46,33,.5) 100%); }
+  .hero-meta { gap: 22px; }
+  .hero-meta b { font-size: 25px; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .dish-grid { grid-template-columns: 1fr; }
+  .pillars { grid-template-columns: 1fr; }
+  .about-media .float { inset-inline-end: -6px; bottom: -28px; width: 42%; }
+  .menu-panel { padding: 22px 18px; }
+  .menu-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 0 16px 6px; scrollbar-width: none; }
+  .menu-tabs::-webkit-scrollbar { display: none; }
+  .menu-tab { flex: none; font-size: 16px; padding: 9px 18px; }
+  .menu-item h4 { font-size: 18px; }
+  .served { padding: 26px 22px; }
+  .family-body { padding: 30px 24px; }
+  .info-card { padding: 26px 22px; }
+  .map, .map iframe { min-height: 320px; }
+  .seen-on .wrap { gap: 6px 20px; }
+  .seen-on span { font-size: 16px; }
+  .seen-on .seen-label { flex-basis: 100%; text-align: center; }
+  .owner { align-items: flex-start; }
+  .owner img { width: 60px; height: 60px; }
+  .friday-head .btn { width: 100%; }
+  .friday-track { grid-auto-columns: 82%; margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; }
+  .fcard { min-width: 0; }
+  .pull-quote { padding: 40px 22px 30px; }
+  .press-grid { grid-template-columns: 1fr; gap: 16px; }
+  .video-modal { padding: 0; }
+  .video-box { border-radius: 0; }
+  .mobile-bar {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 10px; position: fixed; inset: auto 0 0 0; z-index: 40;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(250,246,238,.97); backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+  }
+  .mobile-bar .btn { padding: 13px 10px; font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="גורמה סבזי – לראש הדף" data-i18n-attr="aria-label:a.logo">
+      <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <path fill="#d9a441" d="M50 28.5C58.3 25.6 59.95 17.35 55.87 10.43C48.5 13.63 44.99 21.28 50 28.5Z"/>
+        <path fill="#d9a441" d="M24 41.5C24 32.5 36 27.5 50 27.5C64 27.5 76 32.5 76 41.5Z"/>
+        <path fill="#d9a441" d="M20.25 41.5H79.75A3.25 3.25 0 0 1 79.75 48H20.25A3.25 3.25 0 0 1 20.25 41.5Z"/>
+        <path fill="#d9a441" fill-rule="evenodd" d="M22 52H78V71C78 83 69 91 57 91H43C31 91 22 83 22 71ZM23 59.2H77V60.8H23ZM24 77.2H76V78.8H24ZM31 65.5L34.4 69L31 72.5L27.6 69ZM40.5 65.5L43.9 69L40.5 72.5L37.1 69ZM50 65.5L53.4 69L50 72.5L46.6 69ZM59.5 65.5L62.9 69L59.5 72.5L56.1 69ZM69 65.5L72.4 69L69 72.5L65.6 69Z"/>
+        <path fill="#d9a441" d="M22.5 55H15.5C8.7 55 8.7 66.5 15.5 66.5H22.5V62.5H15.5C13.9 62.5 13.9 59 15.5 59H22.5ZM77.5 55H84.5C91.3 55 91.3 66.5 84.5 66.5H77.5V62.5H84.5C86.1 62.5 86.1 59 84.5 59H77.5Z"/>
+      </svg>
+      <span class="logo-text"><b>גורמה סבזי</b><small>GOURMET SABZI</small></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#about" data-i18n="nav.about">הסיפור</a>
+      <a href="#signature" data-i18n="nav.dishes">המנות שלנו</a>
+      <a href="#menu" data-i18n="nav.menu">תפריט</a>
+      <a href="#press" data-i18n="nav.press">בתקשורת</a>
+      <a href="#visit" data-i18n="nav.visit">שעות ומיקום</a>
+      <a class="btn btn-gold" href="https://wolt.com/he/isr/tel-aviv/restaurant/gourmet-sabzi" target="_blank" rel="noopener" data-i18n="nav.order" data-i18n-attr="href:link.wolt">הזמנה בוולט</a>
+    </nav>
+    <div class="lang" id="lang">
+      <button class="lang-btn" id="langBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="langMenu" aria-label="Language · שפה · زبان">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>
+        <span id="langCurrent">עב</span>
+      </button>
+      <ul class="lang-menu" id="langMenu" role="menu" hidden>
+        <li role="none"><button type="button" role="menuitemradio" aria-checked="true" data-lang="he"><bdi lang="he">עברית</bdi></button></li>
+        <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="en"><bdi lang="en">English</bdi></button></li>
+        <li role="none"><button type="button" role="menuitemradio" aria-checked="false" data-lang="fa"><bdi lang="fa">فارسی</bdi></button></li>
+      </ul>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="פתיחת תפריט ניווט" aria-expanded="false" aria-controls="nav" data-i18n-attr="aria-label:a.toggle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg" role="img" aria-label="שולחן פרסי ערוך: קבבים על האש, אורז זעפרן עם ברבריס, תבשילים וסלטים" data-i18n-attr="aria-label:a.heroBg"></div>
+  <div class="wrap">
+    <div class="hero-content">
+      <span class="eyebrow" data-i18n="hero.eyebrow">מטבח פרסי ביתי · תל אביב</span>
+      <h1 data-i18n="hero.title">הטעם של <span>הבית</span><br>הפרסי</h1>
+      <div class="latin">GOURMET SABZI</div>
+      <p class="lead" data-i18n="hero.lead">חורש'ט סבזי שמתבשל לאט, גונדי רך בציר עוף, קבב על גריל פחמים ואורז פרסי ריחני. מתכונים משפחתיים, עשויים בדיוק כמו פעם.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="https://wolt.com/he/isr/tel-aviv/restaurant/gourmet-sabzi" target="_blank" rel="noopener" data-i18n-attr="href:link.wolt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+          <span data-i18n="hero.order">הזמנת משלוח</span>
+        </a>
+        <a class="btn btn-ghost" href="#menu" data-i18n="hero.menu">לתפריט המלא</a>
+      </div>
+      <div class="hero-meta">
+        <div><b data-i18n="hero.m1v">9.2</b><span data-i18n="hero.m1l">דירוג לקוחות בוולט</span></div>
+        <div><b data-i18n="hero.m2v"><bdi dir="ltr">35–45</bdi></b><span data-i18n="hero.m2l">דקות משלוח</span></div>
+        <div><b data-i18n="hero.m3v">2016</b><span data-i18n="hero.m3l">בשוק לוינסקי מאז</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="pattern" aria-hidden="true"></div>
+<a class="seen-on" href="#press">
+  <div class="wrap">
+    <span class="seen-label" data-i18n="seen.label">ראיתם אותנו ב:</span>
+    <span data-i18n="seen.kan">כאן 11</span><span data-i18n="seen.c13">חדשות 13</span><span>i24NEWS</span><span data-i18n="seen.knesset">ערוץ הכנסת</span><span>mako</span><span>ynet</span>
+  </div>
+</a>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div class="about-media reveal">
+      <img src="images/kebab-mix.jpg" alt="מגש קבב ופרגית על האש עם אורז ירוק, עגבנייה צלויה, פיתה וסלטים" loading="lazy" data-i18n-attr="alt:alt.kebabMix">
+      <img class="float" src="images/rice.jpg" alt="אורז פרסי צבעוני" loading="lazy" data-i18n-attr="alt:alt.rice">
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow" data-i18n="about.eyebrow">הסיפור שלנו</span>
+      <h2 data-i18n="about.title">מטבח של בית,<br>בלב שוק לוינסקי</h2>
+      <p data-i18n="about.p1">"סבזי" בפרסית פירושו ירוקים, והם הלב של המטבח שלנו. כל סיר מתחיל מצרור גדול של עשבי תיבול טריים, קוצצים, מטגנים לאט ונותנים לזמן לעשות את שלו.</p>
+      <p data-i18n="about.p2">מאז 2016 ביג'אן ברכורדרי מבשל בשוק לוינסקי את המטבח הפרסי שגדל עליו, עם נגיעות ישראליות: לימון פרסי מיובש, בשר בקר שמתבשל שעות, גונדי רך בציר עוף ואורז שמוכן בדיוק כמו שצריך. חלק מחומרי הגלם והכלים מגיעים מאיראן, כדי שהטעם יישאר אמיתי. כל מנה מגיעה עם ירק פרסי, פיתות וסלטי הבית, כמו בארוחת צהריים משפחתית.</p>
+      <div class="owner">
+        <img src="images/bijan.png" alt="ביג'אן ברכורדרי, הבעלים של גורמה סבזי" loading="lazy" data-i18n-attr="alt:alt.owner">
+        <div>
+          <b data-i18n="owner.name">ביג'אן ברכורדרי</b>
+          <span data-i18n="owner.role">הבעלים והלב של המטבח</span>
+          <button class="owner-link" data-video="AgYfQhcfe88" data-start="96" data-title="אף מילה על סולימאני: הסצנה הפרסית פורחת בישראל (כאן חדשות)" data-i18n-attr="data-title:vt.owner">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <span data-i18n="owner.video">צפו בסיפור של ביג'אן בכאן 11</span>
+          </button>
+        </div>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 019.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          <b data-i18n="pillar.t1">ירוקים טריים</b><span data-i18n="pillar.d1">עשבי תיבול טריים בכל סיר</span>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <b data-i18n="pillar.t2">בישול איטי</b><span data-i18n="pillar.d2">תבשילים שמתבשלים שעות</span>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+          <b data-i18n="pillar.t3">מתכון משפחתי</b><span data-i18n="pillar.d3">הטעמים שגדלנו עליהם</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Signature -->
+<section class="section signature" id="signature">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="sig.eyebrow">המנות שלנו</span>
+      <h2 data-i18n="sig.title">הקלאסיקות הפרסיות</h2>
+      <p data-i18n="sig.lead">תבשילים ומנות גריל שמגיעים לשולחן עם תוספת חמה, ירק פרסי, פיתות וסלטי הבית.</p>
+    </div>
+
+    <div class="dish-grid">
+      <article class="dish reveal">
+        <div class="dish-img"><img src="images/sabzi-meat.jpg" alt="חורש'ט סבזי בשרי" loading="lazy" data-i18n-attr="alt:alt.sabzi"><span class="tag" data-i18n="dish.tagHouse">המנה של הבית</span></div>
+        <div class="dish-body">
+          <div class="row"><h3 data-i18n="dish.sabzi">חורש'ט סבזי</h3><span class="price">₪79</span></div>
+          <span class="fa" data-i18n="sub.sabzi">Ghormeh Sabzi</span>
+          <p data-i18n="dish.sabziD">שבעה סוגי ירק, לימון פרסי יבש ובשר בקר שמתבשל לאט. התבשיל הלאומי של פרס.</p>
+        </div>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img"><img src="images/gondi.jpg" alt="גונדי" loading="lazy" data-i18n-attr="alt:alt.gondi"></div>
+        <div class="dish-body">
+          <div class="row"><h3 data-i18n="dish.gondi">גונדי</h3><span class="price">₪65</span></div>
+          <span class="fa" data-i18n="sub.gondi">Gondi</span>
+          <p data-i18n="dish.gondiD">קציצת חזה עוף וחומוס קלוי טחון, מבושלת בציר עוף. מנת השבת של יהודי פרס.</p>
+        </div>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img"><img src="images/kabab.jpg" alt="קבב על גריל פחמים" loading="lazy" data-i18n-attr="alt:alt.kabab"><span class="tag" data-i18n="dish.tagGrill">מהגריל</span></div>
+        <div class="dish-body">
+          <div class="row"><h3 data-i18n="dish.kabab">קבב על האש</h3><span class="price">₪65</span></div>
+          <span class="fa" data-i18n="sub.kabab">Kabab</span>
+          <p data-i18n="dish.kababD">קבב עסיסי על גריל פחמים, מוגש עם תוספת, רוטב, ירק פרסי, פיתות וסלטי הבית.</p>
+        </div>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img"><img src="images/mosama-meat.jpg" alt="חורש'ט מוסמא בשרי" loading="lazy" data-i18n-attr="alt:alt.mosama"></div>
+        <div class="dish-body">
+          <div class="row"><h3 data-i18n="dish.mosama">חורש'ט מוסמא</h3><span class="price">₪79</span></div>
+          <span class="fa" data-i18n="sub.mosama">Khoresh Mosama</span>
+          <p data-i18n="dish.mosamaD">שעועית ירוקה, פלחי תפוח אדמה, עגבניות טריות מרוסקות ובשר בקר.</p>
+        </div>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img"><img src="images/bamia-veg.jpg" alt="חורש'ט במיה צמחוני" loading="lazy" data-i18n-attr="alt:alt.bamia"><span class="tag veg" data-i18n="dish.tagVeg">יש גם צמחוני</span></div>
+        <div class="dish-body">
+          <div class="row"><h3 data-i18n="dish.bamia">חורש'ט במיה</h3><span class="price">₪67</span></div>
+          <span class="fa" data-i18n="sub.bamia">Khoresh Bamieh</span>
+          <p data-i18n="dish.bamiaD">במיה רכה וטרייה, עגבניות מרוסקות ולימון פרסי יבש. בגרסה צמחונית או בשרית.</p>
+        </div>
+      </article>
+      <article class="dish reveal">
+        <div class="dish-img"><img src="images/chicken.jpg" alt="עוף במרינדת קינמון" loading="lazy" data-i18n-attr="alt:alt.chicken"></div>
+        <div class="dish-body">
+          <div class="row"><h3 data-i18n="dish.chicken">עוף בקינמון</h3><span class="price">₪62</span></div>
+          <span class="fa" data-i18n="sub.chicken">Cinnamon Chicken</span>
+          <p data-i18n="dish.chickenD">עוף במרינדת קינמון שנצלה בתנור עד שהוא רך, מוגש עם תוספת, רוטב וסלטי הבית.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="served reveal">
+      <h3 data-i18n="served.title">כל מנה עיקרית מוגשת עם<small>* ירק, פיתות וסלטים נשלחים בהתאם לזמינות במלאי</small></h3>
+      <ul>
+        <li data-i18n="served.side">תוספת חמה לבחירה</li>
+        <li data-i18n="served.herbs">ירק פרסי טרי</li>
+        <li data-i18n="served.pita">פיתות</li>
+        <li data-i18n="served.salads">סלטי הבית</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Friday specials -->
+<section class="section friday" id="friday">
+  <div class="wrap">
+    <div class="friday-head reveal">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="fri.eyebrow">רק בימי שישי</span>
+        <h2 data-i18n="fri.title">שישי בגורמה סבזי</h2>
+        <p data-i18n="fri.lead">לכבוד סוף השבוע הסירים הגדולים יוצאים: מרקים פרסיים, ממולאים ומנות של חג. המבחר משתנה ובכפוף לזמינות, אז כדאי להתקשר ולשאול מה מתבשל היום.</p>
+      </div>
+      <a class="btn btn-green" href="tel:+97235080709">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span data-i18n="fri.call">מה יש היום בסיר?</span>
+      </a>
+    </div>
+    <div class="friday-track" tabindex="0" aria-label="מנות שישי" data-i18n-attr="aria-label:a.friday">
+      <article class="fcard reveal">
+        <img src="images/ash-anar.jpg" alt="אש אנאר – מרק רימונים" loading="lazy" data-i18n-attr="alt:alt.anar">
+        <div><h3 data-i18n="fri.anar">אש אנאר</h3><span class="fa" data-i18n="sub.anar">Ash-e Anar</span><p data-i18n="fri.anarD">מרק רימונים עם קציצות רכות, תמרים הודיים ואורז. מתוק-חמוץ ומנחם.</p></div>
+      </article>
+      <article class="fcard reveal">
+        <img src="images/ash-reshte.jpg" alt="אש רשתה – מרק אטריות פרסי" loading="lazy" data-i18n-attr="alt:alt.reshte">
+        <div><h3><span data-i18n="fri.reshte">אש רשתה</span> <svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h3><span class="fa" data-i18n="sub.reshte">Ash-e Reshte</span><p data-i18n="fri.reshteD">מרק אטריות פרסי עם עשבי תיבול, חומוס ועדשים, ומעליו בצל מטוגן.</p></div>
+      </article>
+      <article class="fcard reveal">
+        <img src="images/shifteh-berenji.jpg" alt="שפטה ברנג'י" loading="lazy" data-i18n-attr="alt:alt.shifteh">
+        <div><h3 data-i18n="fri.shifteh">שפטה ברנג'י</h3><span class="fa" data-i18n="sub.shifteh">Shifteh Berenji</span><p data-i18n="fri.shiftehD">קציצת אורז ובקר שמתבשלת ברוטב עגבניות חמצמץ ועשיר.</p></div>
+      </article>
+      <article class="fcard reveal">
+        <img src="images/dolma.jpg" alt="דולמה – עלי גפן ממולאים" loading="lazy" data-i18n-attr="alt:alt.dolma">
+        <div><h3><span data-i18n="fri.dolma">עלי גפן ממולאים</span> <svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h3><span class="fa" data-i18n="sub.dolma">Dolma</span><p data-i18n="fri.dolmaD">עלי גפן ממולאים באורז ריחני, ברוטב סלק חמצמץ.</p></div>
+      </article>
+      <article class="fcard reveal">
+        <img src="images/stuffed-pepper.jpg" alt="פלפל ממולא" loading="lazy" data-i18n-attr="alt:alt.pepper">
+        <div><h3><span data-i18n="fri.pepper">פלפל ממולא</span> <svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h3><span class="fa" data-i18n="sub.pepper">Dolmeh Felfel</span><p data-i18n="fri.pepperD">פלפל ממולא באורז מתובל וירקות, אפוי ברוטב עגבניות.</p></div>
+      </article>
+      <article class="fcard reveal">
+        <img src="images/stuffed-cabbage.jpg" alt="כרוב ממולא" loading="lazy" data-i18n-attr="alt:alt.cabbage">
+        <div><h3 data-i18n="fri.cabbage">כרוב ממולא</h3><span class="fa" data-i18n="sub.cabbage">Dolmeh Kalam</span><p data-i18n="fri.cabbageD">עלי כרוב רכים ממולאים באורז מתובל וירקות, ברוטב עגבניות.</p></div>
+      </article>
+      <article class="fcard reveal">
+        <img src="images/fish.jpg" alt="פילה דג עם אורז וסלטים" loading="lazy" data-i18n-attr="alt:alt.fish">
+        <div><h3 data-i18n="fri.fish">עסקית פילה דג</h3><span class="fa" data-i18n="sub.fish">Fish Fillet</span><p data-i18n="fri.fishD">פילה דג עם אורז הבית, סלטים ופיתה טרייה.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="menu.eyebrow">התפריט</span>
+      <h2 data-i18n="menu.title">התפריט המלא</h2>
+      <p data-i18n="menu.lead">תבשילים, מנות גריל, מנות במשקל לבית וארוחה משפחתית.</p>
+    </div>
+
+    <div class="menu-tabs" role="tablist" aria-label="קטגוריות תפריט" data-i18n-attr="aria-label:a.tabs">
+      <button class="menu-tab" role="tab" aria-selected="true" aria-controls="tab-stews" id="t-stews" data-i18n="tab.stews">תבשילים פרסיים</button>
+      <button class="menu-tab" role="tab" aria-selected="false" aria-controls="tab-grill" id="t-grill" data-i18n="tab.grill">גריל ותנור</button>
+      <button class="menu-tab" role="tab" aria-selected="false" aria-controls="tab-weight" id="t-weight" data-i18n="tab.weight">במשקל</button>
+      <button class="menu-tab" role="tab" aria-selected="false" aria-controls="tab-family" id="t-family" data-i18n="tab.family">מארז משפחתי</button>
+      <button class="menu-tab" role="tab" aria-selected="false" aria-controls="tab-drinks" id="t-drinks" data-i18n="tab.drinks">שתייה</button>
+    </div>
+
+    <!-- Stews -->
+    <div class="menu-panel active" id="tab-stews" role="tabpanel" aria-labelledby="t-stews">
+      <p class="menu-note" data-i18n="note.stews">כל התבשילים מוגשים עם תוספת חמה, ירק פרסי, פיתות וסלטי הבית</p>
+      <div class="menu-list">
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.sabziMeat">חורש'ט סבזי בשרי</h4><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.sabziMeatD">שבעה סוגי ירק, לימון פרסי יבש ובשר בקר</p></div>
+        <div class="menu-item"><div class="top"><h4><span data-i18n="m.sabziVeg">חורש'ט סבזי צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h4><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.sabziVegD">שבעה סוגי ירק ולימון פרסי יבש</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.mosamaMeat">חורש'ט מוסמא בשרי</h4><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.mosamaMeatD">שעועית ירוקה, פלחי תפוח אדמה, עגבניות טריות מרוסקות ובשר בקר</p></div>
+        <div class="menu-item"><div class="top"><h4><span data-i18n="m.mosamaVeg">חורש'ט מוסמא צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h4><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.mosamaVegD">שעועית ירוקה, פלחי תפוח אדמה ועגבניות טריות מרוסקות</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.bamiaMeat">חורש'ט במיה בשרי</h4><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.bamiaMeatD">במיה רכה וטרייה, עגבניות טריות מרוסקות, לימון פרסי יבש ובשר בקר</p></div>
+        <div class="menu-item"><div class="top"><h4><span data-i18n="m.bamiaVeg">חורש'ט במיה צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h4><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.bamiaVegD">במיה רכה וטרייה, עגבניות טריות מרוסקות ולימון פרסי יבש</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="dish.gondi">גונדי</h4><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.gondiD">קציצת חזה עוף וחומוס קלוי טחון מבושלת בציר עוף</p></div>
+      </div>
+    </div>
+
+    <!-- Grill -->
+    <div class="menu-panel" id="tab-grill" role="tabpanel" aria-labelledby="t-grill">
+      <p class="menu-note" data-i18n="note.grill">מוגש עם תוספת, רוטב, ירק פרסי, פיתות וסלטי הבית</p>
+      <div class="menu-list">
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.kababGrill">קבב על גריל פחמים</h4><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.kababD">קבב עסיסי שנצלה על פחמים</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.pargitGrill">פרגית על גריל פחמים</h4><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.pargitD">פרגית במרינדה, צלויה על פחמים</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.chickenOven">עוף במרינדת קינמון בתנור</h4><span class="dots"></span><span class="price">₪62</span></div><p data-i18n="m.chickenD">עוף רך במרינדת קינמון, צלוי בתנור</p></div>
+      </div>
+    </div>
+
+    <!-- By weight -->
+    <div class="menu-panel" id="tab-weight" role="tabpanel" aria-labelledby="t-weight">
+      <p class="menu-note" data-i18n="note.weight">לבית, לשבת או לאירוח. המחירים לפי יחידה או למשקל הבסיסי, ואפשר לבחור משקל בהזמנה.</p>
+      <div class="menu-list">
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.sabziMeat">חורש'ט סבזי עם בשר</h4><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.sabziVeg">חורש'ט סבזי צמחוני</h4><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.mosamaMeat">חורש'ט מוסמא עם בשר</h4><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.mosamaVeg">חורש'ט מוסמא צמחוני</h4><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.bamiaMeat">חורש'ט במיה עם בשר</h4><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.bamiaVeg">חורש'ט במיה צמחוני</h4><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.lapehMeat">חורש'ט לפה בשרי</h4><span class="dots"></span><span class="price">₪46</span></div><p data-i18n="m.halfLiter">חצי ליטר</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.lapehVeg">חורש'ט לפה צמחוני</h4><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.halfLiter">חצי ליטר</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="dish.gondi">גונדי</h4><span class="dots"></span><span class="price">₪35</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.kabab">קבב</h4><span class="dots"></span><span class="price">₪38</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.pargit">פרגית</h4><span class="dots"></span><span class="price">₪38</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.riceColor">אורז פרסי צבעוני משתנה</h4><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.riceWhite">אורז לבן</h4><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="m.potato">תפוח אדמה בתנור</h4><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+      </div>
+    </div>
+
+    <!-- Family -->
+    <div class="menu-panel" id="tab-family" role="tabpanel" aria-labelledby="t-family" style="padding:0;border:0;background:none">
+      <div class="family">
+        <img src="images/sabzi-veg.jpg" alt="ארוחה פרסית משפחתית" loading="lazy" data-i18n-attr="alt:alt.family">
+        <div class="family-body">
+          <span class="eyebrow" style="color:var(--saffron)" data-i18n="fam.eyebrow">לכל המשפחה</span>
+          <h3 data-i18n="tab.family">מארז משפחתי</h3>
+          <p data-i18n="fam.desc">שני חורש'טים במשקל קילו כל אחד ושתי תוספות לבחירה במשקל חצי קילו כל אחת. מוגש עם סלטים בצד.</p>
+          <span class="price">₪210</span>
+          <a class="btn btn-gold" href="https://wolt.com/he/isr/tel-aviv/restaurant/gourmet-sabzi" target="_blank" rel="noopener" data-i18n="fam.order" data-i18n-attr="href:link.wolt">להזמנת המארז</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drinks -->
+    <div class="menu-panel" id="tab-drinks" role="tabpanel" aria-labelledby="t-drinks">
+      <div class="menu-list">
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.coke">קוקה קולה / קולה זירו (בקבוק זכוכית)</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.sprite">ספרייט / ספרייט זירו (בקבוק זכוכית)</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.cans">פחית קוקה קולה / קולה זירו / פאנטה</h4><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.prigat">פריגת תפוזים / לימונענע (בקבוק זכוכית)</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.grape">פריגת ענבים</h4><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.b500">בקבוק 500 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.fuze">פיוז טי אפרסק</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.500">500 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.flavored">מים בטעמים (אפרסק / ענבים / תפוח)</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.500">500 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.water">מים מינרליים נביעות</h4><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.500">500 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.soda">קינלי סודה</h4><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.250">250 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h4 data-i18n="d.malt">בירה שחורה מאלטי</h4><span class="dots"></span><span class="price">₪11</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Press -->
+<section class="section press" id="press">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow" data-i18n="press.eyebrow">בתקשורת</span>
+      <h2 data-i18n="press.title">מדברים עלינו</h2>
+      <p data-i18n="press.lead">מבקרי אוכל, שפים וכתבות טלוויזיה ביקרו במטבח שלנו בשוק לוינסקי.</p>
+    </div>
+
+    <figure class="pull-quote reveal">
+      <svg class="qmark" viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M20 10v6c-5 1-8 4-8 9h8v13H6V25c0-9 5-14 14-15zm22 0v6c-5 1-8 4-8 9h8v13H28V25c0-9 5-14 14-15z"/></svg>
+      <blockquote data-i18n="press.quote">אתה יודע, עם כל הכבוד למרוקאים ולכולם, זה באמת אחד המטבחים העשירים והטעימים שיש.</blockquote>
+      <figcaption>
+        <span data-i18n="press.quoteBy"><b>השף ישראל אהרוני</b>, בביקור בגורמה סבזי. למחרת הוא כבר הזמין משלוח.</span>
+        <a href="https://www.ynet.co.il/article/4931197" target="_blank" rel="noopener" data-i18n="press.quoteLink">ynet · סיור קולינרי בשוק לוינסקי ←</a>
+      </figcaption>
+    </figure>
+
+    <div class="press-grid">
+      <button class="pcard reveal" data-video="AgYfQhcfe88" data-start="96" data-title="אף מילה על סולימאני: הסצנה הפרסית פורחת בישראל" data-i18n-attr="data-title:press.t1">
+        <span class="thumb"><img src="images/yt-AgYfQhcfe88.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></span>
+        <span class="outlet" data-i18n="press.kan">כאן חדשות</span>
+        <span class="ptitle" data-i18n="press.t1">אף מילה על סולימאני: הסצנה הפרסית פורחת בישראל</span>
+      </button>
+      <button class="pcard reveal" data-video="TDEf1JVs16M" data-title="כתבה על גורמה סבזי עם איילה חסון" data-i18n-attr="data-title:press.t2">
+        <span class="thumb"><img src="images/yt-TDEf1JVs16M.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></span>
+        <span class="outlet" data-i18n="press.c13">חדשות 13 · איילה חסון</span>
+        <span class="ptitle" data-i18n="press.t2">הכתבה של איילה חסון על גורמה סבזי</span>
+      </button>
+      <button class="pcard reveal" data-video="O_9uVsAn_W8" data-title="ניב גלבוע: ביקורת פתע בשוק לוינסקי" data-i18n-attr="data-title:vt.niv">
+        <span class="thumb"><img src="images/yt-O_9uVsAn_W8.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></span>
+        <span class="outlet" data-i18n="press.niv">ניב גלבוע · מבקר מסעדות</span>
+        <span class="ptitle" data-i18n="press.t3">ביקורת פתע במסעדות שוק לוינסקי</span>
+      </button>
+      <button class="pcard reveal" data-video="Y79JGvGR92c" data-title="Mideast Eats: Gondi (i24NEWS)">
+        <span class="thumb"><img src="images/yt-Y79JGvGR92c.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></span>
+        <span class="outlet">i24NEWS</span>
+        <span class="ptitle" data-i18n="press.t4">הסוד של הגונדי שלנו, מאחורי הקלעים במטבח</span>
+      </button>
+      <button class="pcard reveal" data-video="w1sdgYBciR4" data-title="How Are Iranian Products Making Their Way into Israel? (i24NEWS)">
+        <span class="thumb"><img src="images/yt-w1sdgYBciR4.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></span>
+        <span class="outlet">i24NEWS</span>
+        <span class="ptitle" data-i18n="press.t5">איך מוצרים מאיראן מגיעים למטבח בתל אביב</span>
+      </button>
+      <button class="pcard reveal" data-video="g9_qNUkk3oI" data-start="3132" data-title="משכן לילה עם הני זובידה (ערוץ הכנסת)" data-i18n-attr="data-title:vt.knesset">
+        <span class="thumb"><img src="images/yt-g9_qNUkk3oI.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></span>
+        <span class="outlet" data-i18n="seen.knesset">ערוץ הכנסת</span>
+        <span class="ptitle" data-i18n="press.t6">ביג'אן מציג את המנות שלנו ב"משכן לילה"</span>
+      </button>
+      <a class="pcard reveal" href="https://fb.watch/vNvh6T69iQ/" target="_blank" rel="noopener">
+        <span class="thumb"><img src="images/sabzi-veg.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></span>
+        <span class="outlet" data-i18n="press.reshet">רשת 13 · פז רובינזון</span>
+        <span class="ptitle" data-i18n="press.t7">מהמטבח הפרסי באהבה: שלוש פנינים פרסיות, ואנחנו ביניהן</span>
+      </a>
+      <a class="pcard reveal" href="https://www.mako.co.il/news-channel2/Economy-Newcast-q4_2016/Article-f3396d8891c1851004.htm" target="_blank" rel="noopener">
+        <span class="thumb"><img src="images/rice.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></span>
+        <span class="outlet" data-i18n="press.mako">mako · חדשות 2</span>
+        <span class="ptitle" data-i18n="press.t8">האורז המושלם: שפים צעירים בחרו, והאורז שלנו בלט</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="video-modal" id="videoModal" hidden>
+  <div class="video-box" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+    <div class="video-bar"><span id="videoTitle"></span><button class="video-close" id="videoClose" aria-label="סגירת הסרטון" data-i18n-attr="aria-label:a.close">&times;</button></div>
+    <div class="video-frame" id="videoFrame"></div>
+  </div>
+</div>
+
+<!-- Order CTA -->
+<section class="section cta">
+  <div class="wrap reveal">
+    <span class="eyebrow" data-i18n="cta.eyebrow">משלוחים ואיסוף עצמי</span>
+    <h2 data-i18n="cta.title">ארוחה פרסית, עד הבית</h2>
+    <p data-i18n="cta.lead">משלוחים לתל אביב, הרצליה והסביבה דרך וולט, או איסוף עצמי מהמסעדה ברחוב לוינסקי.</p>
+    <div class="cta-actions">
+      <a class="btn btn-gold" href="https://wolt.com/he/isr/tel-aviv/restaurant/gourmet-sabzi" target="_blank" rel="noopener" data-i18n-attr="href:link.wolt">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        <span data-i18n="nav.order">הזמנה בוולט</span>
+      </a>
+      <a class="btn btn-ghost" href="tel:+97235080709">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <span class="num">03-508-0709</span>
+      </a>
+    </div>
+    <div class="delivery-facts">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="cta.fact1">משלוח תוך <bdi dir="ltr">35–45</bdi> דק'</span></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg><span data-i18n="cta.fact2">איסוף עצמי תוך <bdi dir="ltr">10–15</bdi> דק'</span></span>
+      <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><span data-i18n="cta.fact3">דירוג 9.2 בוולט</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- Visit -->
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-i18n="visit.eyebrow">בואו לבקר</span>
+      <h2 data-i18n="visit.title">שעות פתיחה ומיקום</h2>
+    </div>
+    <div class="visit-grid">
+      <div class="info-card reveal">
+        <div class="info-block">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="visit.hours">שעות פתיחה</span></h3>
+          <span class="status" id="status" hidden></span>
+          <table class="hours" id="hours">
+            <tr data-day="0"><td data-i18n="day.0">ראשון</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="1"><td data-i18n="day.1">שני</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="2"><td data-i18n="day.2">שלישי</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="3"><td data-i18n="day.3">רביעי</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="4"><td data-i18n="day.4">חמישי</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="5"><td data-i18n="day.5">שישי</td><td data-i18n="hours.friday"><bdi dir="ltr">10:00–17:00</bdi></td></tr>
+            <tr data-day="6" class="closed"><td data-i18n="day.6">שבת</td><td data-i18n="hours.closed">סגור</td></tr>
+          </table>
+        </div>
+        <div class="info-block">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="visit.address">כתובת</span></h3>
+          <p data-i18n="visit.addr">רחוב לוינסקי 47, שוק לוינסקי, תל אביב-יפו</p>
+          <div class="nav-links"><a class="chip" href="https://ul.waze.com/ul?place=ChIJr4h_w51MHRUR_C_KhIPCTb4&amp;ll=32.05976760%2C34.77232950&amp;navigate=yes" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg>Waze</a><a class="chip" href="https://www.google.com/maps/search/?api=1&amp;query=32.0597676,34.7723295" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"/></svg>Google Maps</a></div>
+          <p class="small" data-i18n="visit.seating">ישיבה במסעדה בכפוף למקום פנוי</p>
+        </div>
+        <div class="info-block">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg><span data-i18n="visit.phone">טלפון</span></h3>
+          <p><a href="tel:+97235080709" dir="ltr" class="num">03-508-0709</a></p>
+        </div>
+        <div class="info-block">
+          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span data-i18n="visit.email">דוא"ל ורשתות</span></h3>
+          <p><a href="mailto:Gormesabzirest@gmail.com">Gormesabzirest@gmail.com</a></p>
+          <div class="nav-links"><a class="chip" href="https://www.instagram.com/gorme_sabzi_rest/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Instagram</a><a class="chip" href="https://www.facebook.com/gormesabzirestaurant/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7H16l.6-4h-3.1V9c0-.6.4-1 1-1z"/></svg>Facebook</a></div>
+        </div>
+      </div>
+      <div class="map reveal">
+        <iframe title="מפה – גורמה סבזי, לוינסקי 47 תל אביב" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=32.0597676,34.7723295&amp;hl=he&amp;z=17&amp;output=embed" data-i18n-attr="title:a.map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="top">
+      <a href="#top" class="logo">
+        <svg class="logo-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <path fill="#d9a441" d="M50 28.5C58.3 25.6 59.95 17.35 55.87 10.43C48.5 13.63 44.99 21.28 50 28.5Z"/>
+          <path fill="#d9a441" d="M24 41.5C24 32.5 36 27.5 50 27.5C64 27.5 76 32.5 76 41.5Z"/>
+          <path fill="#d9a441" d="M20.25 41.5H79.75A3.25 3.25 0 0 1 79.75 48H20.25A3.25 3.25 0 0 1 20.25 41.5Z"/>
+          <path fill="#d9a441" fill-rule="evenodd" d="M22 52H78V71C78 83 69 91 57 91H43C31 91 22 83 22 71ZM23 59.2H77V60.8H23ZM24 77.2H76V78.8H24ZM31 65.5L34.4 69L31 72.5L27.6 69ZM40.5 65.5L43.9 69L40.5 72.5L37.1 69ZM50 65.5L53.4 69L50 72.5L46.6 69ZM59.5 65.5L62.9 69L59.5 72.5L56.1 69ZM69 65.5L72.4 69L69 72.5L65.6 69Z"/>
+          <path fill="#d9a441" d="M22.5 55H15.5C8.7 55 8.7 66.5 15.5 66.5H22.5V62.5H15.5C13.9 62.5 13.9 59 15.5 59H22.5ZM77.5 55H84.5C91.3 55 91.3 66.5 84.5 66.5H77.5V62.5H84.5C86.1 62.5 86.1 59 84.5 59H77.5Z"/>
+        </svg>
+        <span class="logo-text"><b>גורמה סבזי</b><small>GOURMET SABZI</small></span>
+      </a>
+      <nav>
+        <a href="#about" data-i18n="nav.about">הסיפור</a>
+        <a href="#menu" data-i18n="nav.menu">תפריט</a>
+        <a href="#visit" data-i18n="nav.visit">שעות ומיקום</a>
+        <a href="https://wolt.com/he/isr/tel-aviv/restaurant/gourmet-sabzi" target="_blank" rel="noopener" data-i18n="nav.order" data-i18n-attr="href:link.wolt">הזמנה בוולט</a>
+        <a href="#press" data-i18n="nav.press">בתקשורת</a>
+        <a href="tel:+97235080709" class="num">03-508-0709</a>
+      </nav>
+      <div class="social">
+        <a href="https://www.instagram.com/gorme_sabzi_rest/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/gormesabzirestaurant/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7H16l.6-4h-3.1V9c0-.6.4-1 1-1z"/></svg></a>
+        <a href="mailto:Gormesabzirest@gmail.com" aria-label="דוא&quot;ל" data-i18n-attr="aria-label:a.email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="year" class="num">2026</span> <span data-i18n="footer.addr">גורמה סבזי · לוינסקי 47, תל אביב</span></span>
+      <span><span data-i18n="footer.credit">עיצוב ופיתוח:</span> <a href="https://il.linkedin.com/in/eyal-barhordary" target="_blank" rel="noopener" data-i18n="footer.name">אייל ברכורדרי</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar">
+  <a class="btn btn-green" href="tel:+97235080709" data-i18n="mobile.call">התקשרו</a>
+  <a class="btn btn-gold" href="https://wolt.com/he/isr/tel-aviv/restaurant/gourmet-sabzi" target="_blank" rel="noopener" data-i18n="nav.order" data-i18n-attr="href:link.wolt">הזמנה בוולט</a>
+</div>
+
+<script src="i18n.js"></script>
+<script>
+  // Header background on scroll
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile nav
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Menu tabs
+  const tabs = document.querySelectorAll('.menu-tab');
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    tab.setAttribute('aria-selected', 'true');
+    document.getElementById(tab.getAttribute('aria-controls')).classList.add('active');
+  }));
+
+  // Today's hours + open/closed status (Israel time)
+  (function () {
+    const hours = { 0: [660, 990], 1: [660, 990], 2: [660, 990], 3: [660, 990], 4: [660, 990], 5: [600, 1020], 6: null };
+    const parts = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Jerusalem', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+    const get = t => parts.find(p => p.type === t).value;
+    const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday'));
+    const mins = (parseInt(get('hour'), 10) % 24) * 60 + parseInt(get('minute'), 10);
+    const row = document.querySelector('#hours tr[data-day="' + day + '"]');
+    if (row) row.classList.add('today');
+    const h = hours[day];
+    const status = document.getElementById('status');
+    const open = h && mins >= h[0] && mins < h[1];
+    status.dataset.state = open ? 'open' : 'shut';
+    status.className = 'status ' + status.dataset.state;
+    status.hidden = false;
+    I18n.onChange(() => { status.textContent = I18n.t('status.' + status.dataset.state); });
+  })();
+
+  // Press videos open in a modal (privacy-friendly embed, loaded only on click)
+  const vModal = document.getElementById('videoModal');
+  const vFrame = document.getElementById('videoFrame');
+  const vTitle = document.getElementById('videoTitle');
+  let lastFocus = null;
+  const closeVideo = () => {
+    vModal.hidden = true;
+    vFrame.innerHTML = '';
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  };
+  document.querySelectorAll('[data-video]').forEach(el => el.addEventListener('click', () => {
+    lastFocus = el;
+    const start = el.dataset.start ? '&start=' + el.dataset.start : '';
+    vTitle.textContent = el.dataset.title || '';
+    vFrame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + el.dataset.video + '?autoplay=1&rel=0' + start +
+      '" title="' + (el.dataset.title || I18n.t('video')).replace(/"/g, '&quot;') + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    vModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('videoClose').focus();
+  }));
+  document.getElementById('videoClose').addEventListener('click', closeVideo);
+  vModal.addEventListener('click', e => { if (e.target === vModal) closeVideo(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !vModal.hidden) closeVideo(); });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Translations: apply the saved or linked language and wire up the language button
+  I18n.init();
+</script>
+</body>
+</html>
