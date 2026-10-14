@@ -259,6 +259,8 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .family-body p { opacity: .85; margin: 0 0 22px; }
 .family-body .price { color: var(--saffron); font-size: 40px; margin-bottom: 22px; }
 .family-body .btn { align-self: flex-start; }
+.price-note { text-align: center; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); max-width: 680px; margin: 28px auto 0; }
+.served + .price-note, .dish-grid + .price-note { margin-top: 24px; }
 
 /* Order CTA */
 .cta {
@@ -688,6 +690,8 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
       </article>
     </div>
 
+    <p class="price-note" data-i18n="price.sigNote">* המחירים לפי תפריט המשלוחים בוולט, נכון לאוקטובר 2026.</p>
+
     <div class="served reveal">
       <h3 data-i18n="served.title">כל מנה עיקרית מוגשת עם<small>* ירק, פיתות וסלטים נשלחים בהתאם לזמינות במלאי</small></h3>
       <ul>
@@ -838,6 +842,8 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
         <div class="menu-item"><div class="top"><h4 data-i18n="d.malt">בירה שחורה מאלטי</h4><span class="dots"></span><span class="price">₪11</span></div><p data-i18n="d.330">330 מ"ל</p></div>
       </div>
     </div>
+
+    <p class="price-note" data-i18n="price.menuNote">המחירים בתפריט הם מחירי ההזמנה בוולט, נכון לאוקטובר 2026. המחירים עשויים להשתנות, והמחיר המעודכן מופיע תמיד בוולט.</p>
   </div>
 </section>
 
