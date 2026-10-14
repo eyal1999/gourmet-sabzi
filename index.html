@@ -31,6 +31,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Assistant:wght@400;600;700&family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+<!-- Restaurant Guru badge styles; loaded without delaying the page -->
+<link rel="stylesheet" href="https://awards.infcdn.net/2024/badge-circledLeaves27.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://awards.infcdn.net/2024/badge-circledLeaves27.css"></noscript>
 
 <script type="application/ld+json">
 {
@@ -46,6 +49,7 @@
   "email": "Gormesabzirest@gmail.com",
   "foundingDate": "2016",
   "founder": {"@type": "Person", "name": "Bijan Barhordary"},
+  "award": "Restaurant Guru Recommended 2026",
   "sameAs": ["https://www.facebook.com/gormesabzirestaurant/", "https://www.instagram.com/gorme_sabzi_rest/"],
   "geo": {"@type": "GeoCoordinates", "latitude": 32.0597676, "longitude": 34.7723295},
   "address": {
@@ -338,8 +342,9 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 
 /* Press */
 .press { background: var(--paper); }
+.press-top { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; margin-bottom: 56px; }
 .pull-quote {
-  position: relative; margin: 0 auto 56px; max-width: 900px; text-align: center;
+  position: relative; margin: 0; text-align: center;
   background: var(--green-900); color: #fff; border-radius: var(--radius); padding: 56px 48px 40px;
 }
 .pull-quote .qmark { width: 46px; height: 46px; color: var(--saffron); margin: 0 auto 12px; }
@@ -348,6 +353,12 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .pull-quote figcaption b { color: var(--saffron); }
 .pull-quote figcaption a { display: block; margin-top: 8px; color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; }
 .pull-quote figcaption a:hover { color: #fff; text-decoration: underline; }
+.award {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center;
+  background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 22px;
+}
+.award-badge { width: 186px; height: 200px; }
+.award p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
 .press-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .pcard {
   font: inherit; text-align: start; color: inherit; text-decoration: none; cursor: pointer;
@@ -473,6 +484,7 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
   .lang-btn { padding: 6px 11px; }
   .family { grid-template-columns: 1fr; }
   .family img { min-height: 220px; max-height: 260px; }
+  .press-top { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   body { font-size: 17px; padding-bottom: 76px; }
@@ -856,14 +868,23 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
       <p data-i18n="press.lead">מבקרי אוכל, שפים וכתבות טלוויזיה ביקרו במטבח שלנו בשוק לוינסקי.</p>
     </div>
 
-    <figure class="pull-quote reveal">
-      <svg class="qmark" viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M20 10v6c-5 1-8 4-8 9h8v13H6V25c0-9 5-14 14-15zm22 0v6c-5 1-8 4-8 9h8v13H28V25c0-9 5-14 14-15z"/></svg>
-      <blockquote data-i18n="press.quote">אתה יודע, עם כל הכבוד למרוקאים ולכולם, זה באמת אחד המטבחים העשירים והטעימים שיש.</blockquote>
-      <figcaption>
-        <span data-i18n="press.quoteBy"><b>השף ישראל אהרוני</b>, בביקור בגורמה סבזי. למחרת הוא כבר הזמין משלוח.</span>
-        <a href="https://www.ynet.co.il/article/4931197" target="_blank" rel="noopener" data-i18n="press.quoteLink">ynet · סיור קולינרי בשוק לוינסקי ←</a>
-      </figcaption>
-    </figure>
+    <div class="press-top">
+      <figure class="pull-quote reveal">
+        <svg class="qmark" viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M20 10v6c-5 1-8 4-8 9h8v13H6V25c0-9 5-14 14-15zm22 0v6c-5 1-8 4-8 9h8v13H28V25c0-9 5-14 14-15z"/></svg>
+        <blockquote data-i18n="press.quote">אתה יודע, עם כל הכבוד למרוקאים ולכולם, זה באמת אחד המטבחים העשירים והטעימים שיש.</blockquote>
+        <figcaption>
+          <span data-i18n="press.quoteBy"><b>השף ישראל אהרוני</b>, בביקור בגורמה סבזי. למחרת הוא כבר הזמין משלוח.</span>
+          <a href="https://www.ynet.co.il/article/4931197" target="_blank" rel="noopener" data-i18n="press.quoteLink">ynet · סיור קולינרי בשוק לוינסקי ←</a>
+        </figcaption>
+      </figure>
+
+      <div class="award reveal">
+        <div class="award-badge">
+          <a id="b-circledLeaves27" target="_blank" rel="noopener" href="https://restaurantguru.com/Gourmet-Sabzi-Tel-Aviv-Yafo" class="b-circledLeaves27--light b-circledLeaves27--2025" dir="ltr" lang="en"> <span class="b-circledLeaves27__title">Recommended</span> <span class="b-circledLeaves27__separator"></span> <span class="b-circledLeaves27__name">Gourmet Sabzi</span></a>
+        </div>
+        <p data-i18n="award.text">זכינו באות "מומלץ" של Restaurant&nbsp;Guru, אתר בינלאומי לדירוג מסעדות.</p>
+      </div>
+    </div>
 
     <div class="press-grid">
       <button class="pcard reveal" data-video="AgYfQhcfe88" data-start="96" data-title="אף מילה על סולימאני: הסצנה הפרסית פורחת בישראל" data-i18n-attr="data-title:press.t1">
