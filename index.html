@@ -49,7 +49,7 @@
   "email": "Gormesabzirest@gmail.com",
   "foundingDate": "2016",
   "founder": {"@type": "Person", "name": "Bijan Barhordary"},
-  "award": "Restaurant Guru Recommended 2026",
+  "award": ["Restaurant Guru Recommended 2023", "Restaurant Guru Recommended 2024", "Restaurant Guru Recommended 2025", "Restaurant Guru Recommended 2026"],
   "sameAs": ["https://www.facebook.com/gormesabzirestaurant/", "https://www.instagram.com/gorme_sabzi_rest/"],
   "geo": {"@type": "GeoCoordinates", "latitude": 32.0597676, "longitude": 34.7723295},
   "address": {
@@ -358,6 +358,8 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
   background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 22px;
 }
 .award-badge { width: 186px; height: 200px; }
+.award-years { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.award-years li { padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--green-800); font-size: 14px; font-weight: 700; }
 .award p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
 .press-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .pcard {
@@ -882,7 +884,10 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
         <div class="award-badge">
           <a id="b-circledLeaves27" target="_blank" rel="noopener" href="https://restaurantguru.com/Gourmet-Sabzi-Tel-Aviv-Yafo" class="b-circledLeaves27--light b-circledLeaves27--2025" dir="ltr" lang="en"> <span class="b-circledLeaves27__title">Recommended</span> <span class="b-circledLeaves27__separator"></span> <span class="b-circledLeaves27__name">Gourmet Sabzi</span></a>
         </div>
-        <p data-i18n="award.text">זכינו באות "מומלץ" של Restaurant&nbsp;Guru, אתר בינלאומי לדירוג מסעדות.</p>
+        <ul class="award-years">
+          <li class="num">2023</li><li class="num">2024</li><li class="num">2025</li><li class="num">2026</li>
+        </ul>
+        <p data-i18n="award.text">ארבע שנים ברציפות זכינו באות "מומלץ" של Restaurant&nbsp;Guru, אתר בינלאומי לדירוג מסעדות.</p>
       </div>
     </div>
 
