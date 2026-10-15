@@ -28,6 +28,9 @@
       'status.shut': 'Closed now',
       video: 'Video',
       'link.wolt': 'https://wolt.com/en/isr/tel-aviv/restaurant/gourmet-sabzi',
+      'link.access': 'accessibility.html?lang=en',
+      'link.privacy': 'privacy.html?lang=en',
+      'link.terms': 'terms.html?lang=en',
 
       // Accessibility labels
       'a.logo': 'Gourmet Sabzi – back to top',
@@ -39,6 +42,9 @@
       'a.close': 'Close video',
       'a.map': 'Map – Gourmet Sabzi, 47 Levinski St, Tel Aviv',
       'a.email': 'Email',
+      'a.navMain': 'Main navigation',
+      'a.navFooter': 'Footer navigation',
+      'a.navQuick': 'Quick actions',
 
       // Header
       'nav.about': 'Our Story',
@@ -57,7 +63,7 @@
       'hero.m1v': '9.2',
       'hero.m1l': 'Customer rating on Wolt',
       'hero.m2v': '35–45',
-      'hero.m2l': 'Minute delivery',
+      'hero.m2l': 'Minute delivery (approx.)',
       'hero.m3v': 'Since 2016',
       'hero.m3l': 'In Levinski Market',
       'seen.label': 'As seen on:',
@@ -245,9 +251,10 @@
       'cta.eyebrow': 'Delivery & Pickup',
       'cta.title': 'A Persian meal, delivered',
       'cta.lead': 'Delivery across Tel Aviv, Herzliya and nearby through Wolt, or pick up from the restaurant on Levinski Street.',
-      'cta.fact1': 'Delivery in 35–45 min',
-      'cta.fact2': 'Pickup in 10–15 min',
+      'cta.fact1': 'Delivery in 35–45 min*',
+      'cta.fact2': 'Pickup in 10–15 min*',
       'cta.fact3': 'Rated 9.2 on Wolt',
+      'cta.note': '* Times are approximate and may change during busy hours and depending on the number of orders.',
 
       // Hours & location
       'visit.eyebrow': 'Come Visit',
@@ -273,6 +280,9 @@
       'footer.addr': 'Gourmet Sabzi · 47 Levinski St, Tel Aviv',
       'footer.credit': 'Design & development:',
       'footer.name': 'Eyal Barhordary',
+      'footer.access': 'Accessibility statement',
+      'footer.privacy': 'Privacy policy',
+      'footer.terms': 'Terms of use',
       'mobile.call': 'Call',
     },
 
@@ -283,6 +293,9 @@
       'status.shut': 'الان بسته است',
       video: 'ویدیو',
       'link.wolt': 'https://wolt.com/he/isr/tel-aviv/restaurant/gourmet-sabzi',
+      'link.access': 'accessibility.html?lang=fa',
+      'link.privacy': 'privacy.html?lang=fa',
+      'link.terms': 'terms.html?lang=fa',
 
       // Accessibility labels
       'a.logo': 'گورمه سبزی – بازگشت به بالای صفحه',
@@ -294,6 +307,9 @@
       'a.close': 'بستن ویدیو',
       'a.map': 'نقشه – گورمه سبزی، خیابان لوینسکی ۴۷، تل‌آویو',
       'a.email': 'ایمیل',
+      'a.navMain': 'ناوبری اصلی',
+      'a.navFooter': 'ناوبری پایین صفحه',
+      'a.navQuick': 'دسترسی سریع',
 
       // Header
       'nav.about': 'داستان ما',
@@ -312,7 +328,7 @@
       'hero.m1v': '۹٫۲',
       'hero.m1l': 'امتیاز مشتریان در وولت',
       'hero.m2v': '۳۵ تا ۴۵',
-      'hero.m2l': 'دقیقه زمان ارسال',
+      'hero.m2l': 'دقیقه زمان ارسال (تقریبی)',
       'hero.m3v': 'از ۲۰۱۶',
       'hero.m3l': 'در بازار لوینسکی',
       'seen.label': 'ما را دیده‌اید در:',
@@ -500,9 +516,10 @@
       'cta.eyebrow': 'ارسال و تحویل حضوری',
       'cta.title': 'غذای ایرانی، تا در خانه',
       'cta.lead': 'ارسال به تل‌آویو، هرتزلیا و حومه از طریق وولت، یا تحویل حضوری از رستوران در خیابان لوینسکی.',
-      'cta.fact1': 'ارسال در ۳۵ تا ۴۵ دقیقه',
-      'cta.fact2': 'تحویل حضوری در ۱۰ تا ۱۵ دقیقه',
+      'cta.fact1': 'ارسال در ۳۵ تا ۴۵ دقیقه*',
+      'cta.fact2': 'تحویل حضوری در ۱۰ تا ۱۵ دقیقه*',
       'cta.fact3': 'امتیاز ۹٫۲ در وولت',
+      'cta.note': '* زمان‌ها تقریبی هستند و ممکن است در ساعات شلوغ و بسته به تعداد سفارش‌ها تغییر کنند.',
 
       // Hours & location
       'visit.eyebrow': 'به ما سر بزنید',
@@ -528,6 +545,9 @@
       'footer.addr': 'گورمه سبزی · لوینسکی ۴۷، تل‌آویو',
       'footer.credit': 'طراحی و توسعه:',
       'footer.name': 'ایال برخورداری',
+      'footer.access': 'بیانیهٔ دسترسی‌پذیری',
+      'footer.privacy': 'سیاست حفظ حریم خصوصی',
+      'footer.terms': 'شرایط استفاده',
       'mobile.call': 'تماس',
     },
   };

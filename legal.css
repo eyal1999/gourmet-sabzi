@@ -1,0 +1,85 @@
+/* Gourmet Sabzi – accessibility statement, privacy policy and terms of use pages */
+:root {
+  --green-900: #0d2e21;
+  --green-800: #123d2c;
+  --green-700: #1b5a40;
+  --green-100: #e6efe8;
+  --saffron: #d9a441;
+  --saffron-dark: #8a6116;
+  --cream: #faf6ee;
+  --paper: #ffffff;
+  --ink: #1f2420;
+  --ink-soft: #4a514c;
+  --line: #e8e1d3;
+  --serif: "Frank Ruhl Libre", Georgia, serif;
+  --sans: "Assistant", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+html[lang="fa"] {
+  --serif: "Vazirmatn", Tahoma, sans-serif;
+  --sans: "Vazirmatn", Tahoma, sans-serif;
+}
+* { box-sizing: border-box; }
+/* The page title is already large, so the text-size buttons grow it to at most 150% */
+html { --dfs: min(var(--fs, 1), 1.5); }
+body {
+  margin: 0; font-family: var(--sans); font-size: calc(18px * var(--fs, 1)); line-height: 1.7;
+  color: var(--ink); background: var(--cream); -webkit-font-smoothing: antialiased;
+}
+html[lang="fa"] body { line-height: 1.9; }
+a { color: var(--green-700); text-underline-offset: 3px; }
+a:hover { color: var(--green-900); }
+
+/* Header */
+/* The header grows to at most 125% with the text-size buttons, so it always fits */
+.lheader { --hfs: min(var(--fs, 1), 1.25); background: var(--green-900); color: #fff; }
+.lheader .wrap { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; padding-block: 14px; }
+.logo { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+.logo:hover { color: #fff; }
+.logo svg { width: 42px; height: 42px; flex: none; }
+.logo b { display: block; font-family: "Frank Ruhl Libre", Georgia, serif; font-size: calc(22px * var(--hfs, 1)); font-weight: 900; line-height: 1.05; }
+.logo small { display: block; font-family: "Assistant", system-ui, sans-serif; font-size: calc(11px * var(--hfs, 1)); letter-spacing: .28em; opacity: .8; }
+.lheader-tools { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
+.back { color: #fff; font-weight: 700; font-size: calc(16px * var(--hfs, 1)); }
+.back:hover { color: var(--saffron); }
+.langs { display: flex; gap: 4px; padding: 3px; border: 1.5px solid rgba(255,255,255,.35); border-radius: 999px; }
+.langs button {
+  border: 0; border-radius: 999px; padding: 5px 12px; background: none; color: #fff; cursor: pointer;
+  font-size: calc(15px * var(--hfs, 1)); font-weight: 700; line-height: 1.2;
+}
+.langs button[lang="he"] { font-family: "Assistant", system-ui, sans-serif; }
+.langs button[lang="en"] { font-family: "Assistant", system-ui, sans-serif; }
+.langs button[lang="fa"] { font-family: "Vazirmatn", Tahoma, sans-serif; }
+.langs button:hover { background: rgba(255,255,255,.12); }
+.langs button[aria-pressed="true"] { background: var(--saffron); color: var(--green-900); }
+
+/* Content */
+.wrap { max-width: 860px; margin: 0 auto; padding-inline: 24px; }
+main { padding: 56px 0 72px; overflow-wrap: anywhere; }
+.doc { display: none; }
+html[lang="he"] .doc[lang="he"], html[lang="en"] .doc[lang="en"], html[lang="fa"] .doc[lang="fa"] { display: block; }
+.doc h1 { margin: 0 0 6px; font-family: var(--serif); font-size: calc(clamp(34px, 5vw, 46px) * var(--dfs, 1)); line-height: 1.2; color: var(--green-900); }
+.updated { margin: 0 0 32px; color: var(--ink-soft); font-size: calc(15.5px * var(--fs, 1)); }
+.doc h2 { margin: 40px 0 10px; font-family: var(--serif); font-size: calc(24px * var(--fs, 1)); line-height: 1.3; color: var(--green-900); }
+.doc p { margin: 0 0 14px; }
+.doc ul { margin: 0 0 14px; padding-inline-start: 24px; }
+.doc li { margin-bottom: 6px; }
+.doc li::marker { color: var(--saffron-dark); }
+.card { margin: 18px 0; padding: 20px 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0; }
+.contact { list-style: none; padding: 0 !important; }
+.contact li { margin-bottom: 4px; }
+.note { font-size: calc(15.5px * var(--fs, 1)); color: var(--ink-soft); }
+
+/* Footer */
+.lfooter { background: var(--green-900); color: rgba(255,255,255,.8); font-size: calc(15px * var(--fs, 1)); }
+.lfooter .wrap { display: flex; justify-content: space-between; align-items: center; gap: 10px 24px; flex-wrap: wrap; padding-block: 26px; }
+.lfooter nav { display: flex; gap: 6px 20px; flex-wrap: wrap; }
+.lfooter a { color: #fff; }
+.lfooter a:hover { color: var(--saffron); }
+.lfooter a[aria-current="page"] { color: var(--saffron); text-decoration: none; font-weight: 700; }
+
+@media (max-width: 640px) {
+  .wrap { padding-inline: 16px; }
+  main { padding: 36px 0 110px; }
+  .card { padding: 16px 18px; }
+}

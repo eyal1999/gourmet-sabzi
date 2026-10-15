@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
+  document.documentElement.classList.add('js');
   // Switch direction for a saved or linked language before the first paint (i18n.js fills in the text)
   (function () {
     try {
@@ -34,6 +35,8 @@
 <!-- Restaurant Guru badge styles; loaded without delaying the page -->
 <link rel="stylesheet" href="https://awards.infcdn.net/2024/badge-circledLeaves27.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://awards.infcdn.net/2024/badge-circledLeaves27.css"></noscript>
+<link rel="stylesheet" href="a11y.css">
+<script src="a11y.js"></script>
 
 <script type="application/ld+json">
 {
@@ -72,7 +75,7 @@
   --green-700: #1b5a40;
   --green-100: #e6efe8;
   --saffron: #d9a441;
-  --saffron-dark: #b9862a;
+  --saffron-dark: #8a6116;
   --pomegranate: #a3262f;
   --cream: #faf6ee;
   --paper: #ffffff;
@@ -87,40 +90,43 @@
 }
 
 * { box-sizing: border-box; }
+/* Display headings are already large, so the text-size buttons grow them to at most 150% */
+html { --dfs: min(var(--fs, 1), 1.5); }
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 body {
   margin: 0;
   font-family: var(--sans);
-  font-size: 18px;
+  font-size: calc(18px * var(--fs, 1));
   line-height: 1.65;
+  overflow-wrap: break-word;
   color: var(--ink);
   background: var(--cream);
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
 a { color: inherit; }
-h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
+h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; overflow-wrap: anywhere; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 10px;
-  font-weight: 700; font-size: 15px; letter-spacing: .08em;
+  font-weight: 700; font-size: calc(15px * var(--fs, 1)); letter-spacing: .08em;
   color: var(--saffron-dark); text-transform: uppercase;
 }
 .eyebrow::before { content: ""; width: 28px; height: 2px; background: currentColor; }
 .section { padding: 104px 0; }
 .section-head { max-width: 640px; margin-bottom: 48px; }
-.section-head h2 { font-size: clamp(34px, 4.5vw, 52px); margin: 12px 0 14px; color: var(--green-900); }
-.section-head p { color: var(--ink-soft); margin: 0; font-size: 19px; }
+.section-head h2 { font-size: calc(clamp(34px, 4.5vw, 52px) * var(--dfs, 1)); margin: 12px 0 14px; color: var(--green-900); }
+.section-head p { color: var(--ink-soft); margin: 0; font-size: calc(19px * var(--fs, 1)); }
 .center { text-align: center; margin-inline: auto; }
 .center .eyebrow::after { content: ""; width: 28px; height: 2px; background: currentColor; }
 
 /* Buttons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  padding: 15px 28px; border-radius: 999px; font-weight: 700; font-size: 17px;
+  padding: 15px 28px; border-radius: 999px; font-weight: 700; font-size: calc(17px * var(--fs, 1));
   text-decoration: none; border: 2px solid transparent; cursor: pointer;
   transition: transform .2s, background .2s, color .2s, box-shadow .2s;
-  white-space: nowrap;
+  text-align: center;
 }
 .btn:hover { transform: translateY(-2px); }
 .btn svg { width: 20px; height: 20px; flex: none; }
@@ -132,7 +138,9 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .btn-green:hover { background: var(--green-700); }
 
 /* Header */
+/* The fixed header grows to at most 125% with the text-size buttons, so the bar always fits */
 .header {
+  --hfs: min(var(--fs, 1), 1.25); font-size: calc(18px * var(--hfs));
   position: fixed; inset: 0 0 auto 0; z-index: 50;
   transition: background .3s, box-shadow .3s, padding .3s;
   padding: 20px 0;
@@ -142,13 +150,13 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; }
 .logo-mark { width: 44px; height: 44px; flex: none; }
 .logo-text { display: flex; flex-direction: column; line-height: 1.05; }
-.logo-text b { font-family: "Frank Ruhl Libre", Georgia, serif; font-size: 24px; font-weight: 900; }
-.logo-text small { font-family: "Assistant", system-ui, sans-serif; font-size: 12px; letter-spacing: .28em; opacity: .8; }
+.logo-text b { font-family: "Frank Ruhl Libre", Georgia, serif; font-size: calc(24px * var(--hfs, 1)); font-weight: 900; }
+.logo-text small { font-family: "Assistant", system-ui, sans-serif; font-size: calc(12px * var(--hfs, 1)); letter-spacing: .28em; opacity: .8; }
 .nav { display: flex; align-items: center; gap: 30px; margin-inline-start: auto; }
 .nav a { color: #fff; text-decoration: none; font-weight: 600; opacity: .9; }
 .nav a:hover { opacity: 1; color: var(--saffron); }
-.nav .btn { padding: 10px 22px; font-size: 16px; opacity: 1; }
-.nav .btn:hover { color: var(--green-900); }
+.nav .btn { padding: 10px 22px; font-size: calc(16px * var(--hfs, 1)); opacity: 1; white-space: nowrap; }
+.nav .btn, .nav .btn:hover { color: var(--green-900); }
 .menu-toggle { display: none; background: none; border: 0; color: #fff; padding: 6px; cursor: pointer; }
 .menu-toggle svg { width: 30px; height: 30px; }
 
@@ -166,15 +174,15 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .hero .wrap { position: relative; z-index: 2; width: 100%; padding-top: 110px; padding-bottom: 80px; }
 .hero-content { max-width: 620px; }
 .hero .eyebrow { color: var(--saffron); }
-.hero h1 { font-size: clamp(46px, 7.4vw, 92px); font-weight: 900; margin: 18px 0 8px; }
+.hero h1 { font-size: calc(clamp(46px, 7.4vw, 92px) * var(--dfs, 1)); font-weight: 900; margin: 18px 0 8px; }
 .hero h1 span { color: var(--saffron); }
-.hero .latin { font-family: "Frank Ruhl Libre", Georgia, serif; font-size: clamp(18px, 2vw, 22px); letter-spacing: .32em; opacity: .75; margin-bottom: 24px; }
-.hero p.lead { font-size: clamp(19px, 2vw, 22px); opacity: .92; margin: 0 0 36px; max-width: 540px; }
+.hero .latin { font-family: "Frank Ruhl Libre", Georgia, serif; font-size: calc(clamp(18px, 2vw, 22px) * var(--fs, 1)); letter-spacing: .32em; opacity: .75; margin-bottom: 24px; }
+.hero p.lead { font-size: calc(clamp(19px, 2vw, 22px) * var(--fs, 1)); opacity: .92; margin: 0 0 36px; max-width: 540px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 .hero-meta { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 52px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,.18); }
 .hero-meta div { display: flex; flex-direction: column; }
-.hero-meta b { font-family: var(--serif); font-size: 30px; color: var(--saffron); line-height: 1.1; }
-.hero-meta span { font-size: 15px; opacity: .8; }
+.hero-meta b { font-family: var(--serif); font-size: calc(30px * var(--fs, 1)); color: var(--saffron); line-height: 1.1; }
+.hero-meta span { font-size: calc(15px * var(--fs, 1)); opacity: .8; }
 
 /* Pattern band */
 .pattern {
@@ -184,24 +192,24 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 }
 
 /* About */
-.about-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 72px; align-items: center; }
+.about-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 72px; align-items: center; }
 .about-media { position: relative; }
 .about-media img { border-radius: var(--radius); box-shadow: var(--shadow); aspect-ratio: 4/3.4; object-fit: cover; width: 100%; }
 .about-media .float {
   position: absolute; width: 46%; bottom: -36px; inset-inline-end: -28px; border: 7px solid var(--cream);
   border-radius: var(--radius); aspect-ratio: 1; object-fit: cover; box-shadow: var(--shadow);
 }
-.about-text h2 { font-size: clamp(34px, 4.5vw, 50px); color: var(--green-900); margin: 12px 0 22px; }
+.about-text h2 { font-size: calc(clamp(34px, 4.5vw, 50px) * var(--dfs, 1)); color: var(--green-900); margin: 12px 0 22px; }
 .about-text p { color: var(--ink-soft); margin: 0 0 18px; }
-.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+.pillars { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 32px; }
 .pillar { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px; }
 .pillar svg { width: 30px; height: 30px; color: var(--green-700); margin-bottom: 8px; }
-.pillar b { display: block; font-size: 17px; color: var(--green-900); }
-.pillar span { font-size: 15px; color: var(--ink-soft); line-height: 1.4; display: block; }
+.pillar b { display: block; font-size: calc(17px * var(--fs, 1)); color: var(--green-900); }
+.pillar span { font-size: calc(15px * var(--fs, 1)); color: var(--ink-soft); line-height: 1.4; display: block; }
 
 /* Signature dishes */
 .signature { background: var(--paper); }
-.dish-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.dish-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
 .dish {
   background: var(--cream); border-radius: var(--radius); overflow: hidden;
   border: 1px solid var(--line); display: flex; flex-direction: column;
@@ -213,30 +221,30 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .dish:hover .dish-img img { transform: scale(1.06); }
 .tag {
   position: absolute; top: 14px; inset-inline-start: 14px; background: rgba(255,255,255,.94); color: var(--green-800);
-  font-size: 13px; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+  font-size: calc(13px * var(--fs, 1)); font-weight: 700; padding: 4px 12px; border-radius: 999px;
 }
 .tag.veg { background: var(--green-700); color: #fff; }
 .dish-body { padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
 .dish-body .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.dish-body h3 { font-size: 24px; color: var(--green-900); }
-.dish-body .fa { font-family: "Frank Ruhl Libre", "Vazirmatn", Georgia, serif; font-size: 14px; color: var(--saffron-dark); letter-spacing: .06em; }
-.price { font-family: var(--serif); font-weight: 700; font-size: 22px; color: var(--pomegranate); white-space: nowrap; }
-.dish-body p { color: var(--ink-soft); font-size: 16px; margin: 10px 0 0; }
+.dish-body h3 { font-size: calc(24px * var(--fs, 1)); color: var(--green-900); }
+.dish-body .fa { font-family: "Frank Ruhl Libre", "Vazirmatn", Georgia, serif; font-size: calc(14px * var(--fs, 1)); color: var(--saffron-dark); letter-spacing: .06em; }
+.price { font-family: var(--serif); font-weight: 700; font-size: calc(22px * var(--fs, 1)); color: var(--pomegranate); white-space: nowrap; }
+.dish-body p { color: var(--ink-soft); font-size: calc(16px * var(--fs, 1)); margin: 10px 0 0; }
 
 /* Served with strip */
 .served {
   margin-top: 56px; background: var(--green-800); color: #fff; border-radius: var(--radius);
   padding: 30px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap;
 }
-.served h3 { font-size: 26px; }
-.served h3 small { display: block; font-family: var(--sans); font-size: 16px; font-weight: 400; opacity: .8; margin-top: 4px; }
+.served h3 { font-size: calc(26px * var(--fs, 1)); }
+.served h3 small { display: block; font-family: var(--sans); font-size: calc(16px * var(--fs, 1)); font-weight: 400; opacity: .8; margin-top: 4px; }
 .served ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; }
-.served li { border: 1px solid rgba(217,164,65,.6); color: var(--saffron); padding: 6px 16px; border-radius: 999px; font-weight: 600; font-size: 16px; }
+.served li { border: 1px solid rgba(217,164,65,.6); color: var(--saffron); padding: 6px 16px; border-radius: 999px; font-weight: 600; font-size: calc(16px * var(--fs, 1)); }
 
 /* Menu */
 .menu-tabs { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
 .menu-tab {
-  font: inherit; font-weight: 700; font-size: 17px; padding: 10px 22px; border-radius: 999px;
+  font: inherit; font-weight: 700; font-size: calc(17px * var(--fs, 1)); padding: 10px 22px; border-radius: 999px;
   border: 1.5px solid var(--line); background: var(--paper); color: var(--green-900); cursor: pointer; transition: all .2s;
 }
 .menu-tab:hover { border-color: var(--green-700); }
@@ -244,26 +252,26 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .menu-panel { display: none; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 40px 48px; box-shadow: 0 2px 0 rgba(0,0,0,.02); }
 .menu-panel.active { display: block; animation: fade .35s ease; }
 @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-.menu-note { text-align: center; color: var(--ink-soft); font-size: 16px; margin: -10px 0 28px; }
-.menu-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 64px; }
+.menu-note { text-align: center; color: var(--ink-soft); font-size: calc(16px * var(--fs, 1)); margin: -10px 0 28px; }
+.menu-list { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 6px 64px; }
 .menu-item { padding: 18px 0; border-bottom: 1px dashed var(--line); }
 .menu-item .top { display: flex; align-items: baseline; gap: 12px; }
-.menu-item h4 { margin: 0; font-size: 20px; font-weight: 700; color: var(--green-900); }
+.menu-item h3 { margin: 0; font-family: var(--sans); font-size: calc(20px * var(--fs, 1)); font-weight: 700; line-height: 1.4; color: var(--green-900); }
 .menu-item .dots { flex: 1; border-bottom: 2px dotted #d6cdb8; transform: translateY(-5px); min-width: 20px; }
-.menu-item .price { font-size: 20px; }
-.menu-item p { margin: 4px 0 0; color: var(--ink-soft); font-size: 15.5px; line-height: 1.5; }
+.menu-item .price { font-size: calc(20px * var(--fs, 1)); }
+.menu-item p { margin: 4px 0 0; color: var(--ink-soft); font-size: calc(15.5px * var(--fs, 1)); line-height: 1.5; }
 .leaf { display: inline-block; width: 16px; height: 16px; vertical-align: -2px; margin-inline-start: 6px; color: var(--green-700); }
 .family {
-  display: grid; grid-template-columns: 1fr 1.1fr; gap: 0; border-radius: var(--radius); overflow: hidden;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 0; border-radius: var(--radius); overflow: hidden;
   background: var(--green-900); color: #fff;
 }
 .family img { width: 100%; height: 100%; object-fit: cover; min-height: 280px; }
 .family-body { padding: 44px; display: flex; flex-direction: column; justify-content: center; }
-.family-body h3 { font-size: 34px; margin: 10px 0 12px; }
+.family-body h3 { font-size: calc(34px * var(--fs, 1)); margin: 10px 0 12px; }
 .family-body p { opacity: .85; margin: 0 0 22px; }
-.family-body .price { color: var(--saffron); font-size: 40px; margin-bottom: 22px; }
+.family-body .price { color: var(--saffron); font-size: calc(40px * var(--fs, 1)); margin-bottom: 22px; }
 .family-body .btn { align-self: flex-start; }
-.price-note { text-align: center; font-size: 14.5px; line-height: 1.6; color: var(--ink-soft); max-width: 680px; margin: 28px auto 0; }
+.price-note { text-align: center; font-size: calc(14.5px * var(--fs, 1)); line-height: 1.6; color: var(--ink-soft); max-width: 680px; margin: 28px auto 0; }
 .served + .price-note, .dish-grid + .price-note { margin-top: 24px; }
 
 /* Order CTA */
@@ -271,29 +279,31 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
   position: relative; color: #fff; text-align: center; overflow: hidden;
   background: linear-gradient(rgba(13,46,33,.86), rgba(13,46,33,.9)), url("images/kabab.jpg") center/cover;
 }
-.cta h2 { font-size: clamp(36px, 5vw, 58px); margin: 14px 0; }
-.cta p { font-size: 20px; opacity: .88; max-width: 600px; margin: 0 auto 34px; }
+.cta h2 { font-size: calc(clamp(36px, 5vw, 58px) * var(--dfs, 1)); margin: 14px 0; }
+.cta p { font-size: calc(20px * var(--fs, 1)); opacity: .88; max-width: 600px; margin: 0 auto 34px; }
 .cta .eyebrow { color: var(--saffron); }
 .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
-.delivery-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px 40px; margin-top: 44px; font-size: 16px; opacity: .85; }
+.delivery-facts { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px 40px; margin-top: 44px; font-size: calc(16px * var(--fs, 1)); opacity: .85; }
 .delivery-facts span { display: inline-flex; align-items: center; gap: 8px; }
 .delivery-facts svg { width: 20px; height: 20px; color: var(--saffron); }
+.delivery-note { margin: 18px auto 0; max-width: 560px; font-size: calc(14.5px * var(--fs, 1)); opacity: .85; }
 
 /* Visit */
-.visit-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 32px; align-items: stretch; }
+.visit-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; align-items: stretch; }
 .info-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 38px; }
 .info-block + .info-block { margin-top: 28px; padding-top: 28px; border-top: 1px solid var(--line); }
-.info-block h3 { font-size: 22px; color: var(--green-900); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.info-block h3 { font-size: calc(22px * var(--fs, 1)); color: var(--green-900); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
 .info-block h3 svg { width: 22px; height: 22px; color: var(--saffron-dark); }
 .info-block p { margin: 0; color: var(--ink-soft); }
-.info-block a { color: var(--green-700); font-weight: 700; text-decoration: none; }
+.info-block a { color: var(--green-700); font-weight: 700; text-decoration: none; overflow-wrap: anywhere; }
 .info-block a:hover { text-decoration: underline; }
 .hours { width: 100%; border-collapse: collapse; }
-.hours td { padding: 7px 0; color: var(--ink-soft); }
+.hours td, .hours th { padding: 7px 0; color: var(--ink-soft); }
+.hours th { text-align: start; font-weight: inherit; }
 .hours td:last-child { text-align: end; font-weight: 600; color: var(--ink); }
-.hours tr.today td { color: var(--green-700); font-weight: 700; }
+.hours tr.today td, .hours tr.today th { color: var(--green-700); font-weight: 700; }
 .hours tr.closed td:last-child { color: var(--pomegranate); }
-.status { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; padding: 4px 14px; border-radius: 999px; margin-bottom: 12px; }
+.status { display: inline-flex; align-items: center; gap: 8px; font-size: calc(15px * var(--fs, 1)); font-weight: 700; padding: 4px 14px; border-radius: 999px; margin-bottom: 12px; }
 .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 .status.open { background: var(--green-100); color: var(--green-700); }
 .status.shut { background: #f8e7e8; color: var(--pomegranate); }
@@ -301,26 +311,27 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; }
 
 /* Footer */
-.footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 56px 0 32px; font-size: 16px; }
+.footer { background: var(--green-900); color: rgba(255,255,255,.75); padding: 56px 0 32px; font-size: calc(16px * var(--fs, 1)); }
 .footer .top { display: flex; justify-content: space-between; align-items: center; gap: 28px; flex-wrap: wrap; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,.12); }
 .footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
 .footer nav a { text-decoration: none; }
 .footer nav a:hover { color: var(--saffron); }
-.footer .bottom { padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 14px; opacity: .7; }
+.footer .bottom { padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: calc(14px * var(--fs, 1)); opacity: .7; }
 
 /* As seen on */
 .seen-on { display: block; background: var(--green-900); color: rgba(255,255,255,.82); text-decoration: none; padding: 18px 0; }
 .seen-on .wrap { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 34px; }
-.seen-on span { font-family: var(--serif); font-weight: 700; font-size: 19px; letter-spacing: .02em; transition: color .2s; }
-.seen-on .seen-label { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--saffron); letter-spacing: .06em; }
+.seen-on span { font-family: var(--serif); font-weight: 700; font-size: calc(19px * var(--fs, 1)); letter-spacing: .02em; transition: color .2s; }
+.seen-on .seen-label { font-family: var(--sans); font-size: calc(14px * var(--fs, 1)); font-weight: 600; color: var(--saffron); letter-spacing: .06em; }
 .seen-on:hover span:not(.seen-label) { color: #fff; }
 
 /* Owner */
 .owner { display: flex; align-items: center; gap: 18px; margin-top: 26px; padding: 16px 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; }
 .owner img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 3px solid var(--saffron); flex: none; background: var(--green-100); }
-.owner b { display: block; font-family: var(--serif); font-size: 21px; color: var(--green-900); line-height: 1.2; }
-.owner span { display: block; font-size: 15px; color: var(--ink-soft); }
-.owner-link { margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; padding: 0; font: inherit; font-size: 15.5px; font-weight: 700; color: var(--pomegranate); cursor: pointer; }
+.owner > div { min-width: 0; }
+.owner b { display: block; font-family: var(--serif); font-size: calc(21px * var(--fs, 1)); color: var(--green-900); line-height: 1.2; }
+.owner span { display: block; font-size: calc(15px * var(--fs, 1)); color: var(--ink-soft); }
+.owner-link { margin-top: 6px; display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; padding: 0; font: inherit; font-size: calc(15.5px * var(--fs, 1)); font-weight: 700; color: var(--pomegranate); cursor: pointer; }
 .owner-link svg { width: 16px; height: 16px; }
 .owner-link:hover { text-decoration: underline; }
 
@@ -336,9 +347,9 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 .fcard { scroll-snap-align: start; background: var(--paper); border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(13,46,33,.08); min-width: 280px; }
 .fcard img { width: 100%; aspect-ratio: 16/11; object-fit: cover; }
 .fcard > div { padding: 18px 20px 22px; }
-.fcard h3 { font-size: 22px; color: var(--green-900); }
-.fcard .fa { font-family: "Frank Ruhl Libre", "Vazirmatn", Georgia, serif; font-size: 14px; color: var(--saffron-dark); letter-spacing: .06em; }
-.fcard p { margin: 8px 0 0; font-size: 15.5px; color: var(--ink-soft); line-height: 1.5; }
+.fcard h3 { font-size: calc(22px * var(--fs, 1)); color: var(--green-900); }
+.fcard .fa { font-family: "Frank Ruhl Libre", "Vazirmatn", Georgia, serif; font-size: calc(14px * var(--fs, 1)); color: var(--saffron-dark); letter-spacing: .06em; }
+.fcard p { margin: 8px 0 0; font-size: calc(15.5px * var(--fs, 1)); color: var(--ink-soft); line-height: 1.5; }
 
 /* Press */
 .press { background: var(--paper); }
@@ -348,10 +359,10 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
   background: var(--green-900); color: #fff; border-radius: var(--radius); padding: 56px 48px 40px;
 }
 .pull-quote .qmark { width: 46px; height: 46px; color: var(--saffron); margin: 0 auto 12px; }
-.pull-quote blockquote { margin: 0; font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); line-height: 1.4; font-weight: 500; }
-.pull-quote figcaption { margin-top: 24px; font-size: 17px; opacity: .88; }
+.pull-quote blockquote { margin: 0; font-family: var(--serif); font-size: calc(clamp(24px, 3vw, 34px) * var(--fs, 1)); line-height: 1.4; font-weight: 500; }
+.pull-quote figcaption { margin-top: 24px; font-size: calc(17px * var(--fs, 1)); opacity: .88; }
 .pull-quote figcaption b { color: var(--saffron); }
-.pull-quote figcaption a { display: block; margin-top: 8px; color: rgba(255,255,255,.7); font-size: 15px; text-decoration: none; }
+.pull-quote figcaption a { display: block; margin-top: 8px; color: rgba(255,255,255,.7); font-size: calc(15px * var(--fs, 1)); text-decoration: none; }
 .pull-quote figcaption a:hover { color: #fff; text-decoration: underline; }
 .award {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; text-align: center;
@@ -359,9 +370,9 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
 }
 .award-badge { width: 186px; height: 200px; }
 .award-years { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.award-years li { padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--green-800); font-size: 14px; font-weight: 700; }
-.award p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink-soft); }
-.press-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.award-years li { padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--green-800); font-size: calc(14px * var(--fs, 1)); font-weight: 700; }
+.award p { margin: 0; font-size: calc(16px * var(--fs, 1)); line-height: 1.5; color: var(--ink-soft); }
+.press-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
 .pcard {
   font: inherit; text-align: start; color: inherit; text-decoration: none; cursor: pointer;
   background: var(--cream); border: 1px solid var(--line); border-radius: 16px; padding: 0 0 18px; overflow: hidden;
@@ -376,16 +387,16 @@ h1, h2, h3 { font-family: var(--serif); line-height: 1.15; margin: 0; }
   background: rgba(13,46,33,.82); box-shadow: 0 0 0 3px rgba(217,164,65,.85);
 }
 .pcard .play::after { content: ""; position: absolute; inset: 50% auto auto 54%; transform: translate(-50%, -50%); border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent #fff; }
-a.pcard .play::after { content: "↗"; border: 0; color: #fff; font-size: 22px; font-weight: 700; inset: 50% auto auto 50%; line-height: 1; }
-.pcard .outlet { display: block; padding: 16px 18px 4px; font-size: 13.5px; font-weight: 700; color: var(--saffron-dark); letter-spacing: .03em; }
-.pcard .ptitle { display: block; padding: 0 18px; font-weight: 700; font-size: 17px; line-height: 1.4; color: var(--green-900); }
+a.pcard .play::after { content: "↗"; border: 0; color: #fff; font-size: calc(22px * var(--fs, 1)); font-weight: 700; inset: 50% auto auto 50%; line-height: 1; }
+.pcard .outlet { display: block; padding: 16px 18px 4px; font-size: calc(13.5px * var(--fs, 1)); font-weight: 700; color: var(--saffron-dark); letter-spacing: .03em; }
+.pcard .ptitle { display: block; padding: 0 18px; font-weight: 700; font-size: calc(17px * var(--fs, 1)); line-height: 1.4; color: var(--green-900); }
 
 /* Video modal */
 .video-modal { position: fixed; inset: 0; z-index: 100; background: rgba(5,18,12,.86); display: flex; align-items: center; justify-content: center; padding: 20px; }
 .video-modal[hidden] { display: none; }
 .video-box { width: min(980px, 100%); background: #000; border-radius: 14px; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
-.video-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px; padding-inline-start: 14px; background: var(--green-900); color: #fff; font-weight: 600; font-size: 16px; }
-.video-close { background: none; border: 0; color: #fff; font-size: 32px; line-height: 1; cursor: pointer; padding: 0 8px; }
+.video-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px; padding-inline-start: 14px; background: var(--green-900); color: #fff; font-weight: 600; font-size: calc(16px * var(--fs, 1)); }
+.video-close { background: none; border: 0; color: #fff; font-size: calc(32px * var(--fs, 1)); line-height: 1; cursor: pointer; padding: 0 8px; }
 .video-frame { aspect-ratio: 16/9; }
 .video-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
 
@@ -393,23 +404,26 @@ a.pcard .play::after { content: "↗"; border: 0; color: #fff; font-size: 22px; 
 .nav-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .info-block .chip, .chip {
   display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px; border-radius: 999px;
-  border: 1.5px solid var(--line); font-size: 15px; font-weight: 700; color: var(--green-800); text-decoration: none; transition: all .2s;
+  border: 1.5px solid var(--line); font-size: calc(15px * var(--fs, 1)); font-weight: 700; color: var(--green-800); text-decoration: none; transition: all .2s;
 }
 .chip svg { width: 17px; height: 17px; }
 .info-block .chip:hover { border-color: var(--green-700); background: var(--green-100); text-decoration: none; }
-.info-block p.small { font-size: 15px; margin-top: 12px; }
+.info-block p.small { font-size: calc(15px * var(--fs, 1)); margin-top: 12px; }
 .footer .social { display: flex; gap: 10px; }
 .footer .social a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); display: grid; place-items: center; transition: all .2s; }
 .footer .social a:hover { border-color: var(--saffron); color: var(--saffron); }
 .footer .social svg { width: 19px; height: 19px; }
 .footer .bottom a { color: inherit; }
+.footer .legal { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.footer .legal a { text-decoration: underline; text-underline-offset: 3px; }
+.footer .legal a:hover { color: var(--saffron); }
 
 /* Language switcher */
 .lang { position: relative; flex: none; }
 .lang-btn {
   display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; border-radius: 999px;
   border: 1.5px solid rgba(255,255,255,.4); background: transparent; color: #fff;
-  font: inherit; font-size: 15px; font-weight: 700; line-height: 1; cursor: pointer; transition: border-color .2s, color .2s;
+  font: inherit; font-size: calc(15px * var(--hfs, 1)); font-weight: 700; line-height: 1; cursor: pointer; transition: border-color .2s, color .2s;
 }
 .lang-btn:hover, .lang-btn[aria-expanded="true"] { border-color: var(--saffron); color: var(--saffron); }
 .lang-btn svg { width: 18px; height: 18px; flex: none; }
@@ -421,9 +435,10 @@ a.pcard .play::after { content: "↗"; border: 0; color: #fff; font-size: 22px; 
 .lang-menu button {
   width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 14px;
   padding: 10px 12px; border: 0; border-radius: 10px; background: none; cursor: pointer;
-  font: inherit; font-size: 16px; font-weight: 600; line-height: 1.3; color: var(--green-900); text-align: start;
+  font: inherit; font-size: calc(16px * var(--fs, 1)); font-weight: 600; line-height: 1.3; color: var(--green-900); text-align: start;
 }
-.lang-menu button:hover, .lang-menu button:focus-visible { background: var(--green-100); outline: none; }
+.lang-menu button:hover, .lang-menu button:focus-visible { background: var(--green-100); }
+.lang-menu button:focus-visible { outline-offset: -3px; box-shadow: none; }
 .lang-menu button[aria-checked="true"] { color: var(--green-700); }
 .lang-menu button[aria-checked="true"]::after { content: "✓"; color: var(--saffron-dark); font-weight: 700; }
 .lang-menu [lang="he"] { font-family: "Assistant", system-ui, sans-serif; }
@@ -431,7 +446,7 @@ a.pcard .play::after { content: "↗"; border: 0; color: #fff; font-size: 22px; 
 
 /* English and Farsi */
 .i18n-pending body { visibility: hidden; }
-html[lang="en"] .hero h1 { font-size: clamp(42px, 6.4vw, 80px); }
+html[lang="en"] .hero h1 { font-size: calc(clamp(42px, 6.4vw, 80px) * var(--dfs, 1)); }
 html[lang="en"] .dish-body .fa, html[lang="en"] .fcard .fa { letter-spacing: 0; }
 @media (min-width: 641px) {
   html[dir="ltr"] .hero::before { background: linear-gradient(90deg, rgba(13,46,33,.94) 0%, rgba(13,46,33,.82) 42%, rgba(13,46,33,.35) 100%); }
@@ -451,65 +466,72 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
 .mobile-bar { display: none; }
 
 /* Reveal */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.in { opacity: 1; transform: none; }
+/* Hidden only when scripts run, so the content never depends on them */
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
 
 /* Responsive */
+@media (max-width: 1280px) {
+  .header { --hfs: min(var(--fs, 1), 1.1); }
+}
 @media (max-width: 1100px) {
+  .header { --hfs: 1; }
   .nav { gap: 20px; }
-  .nav a { font-size: 15.5px; }
+  .nav a { font-size: calc(15.5px * var(--hfs, 1)); }
 }
 @media (max-width: 1000px) {
-  .about-grid { grid-template-columns: 1fr; gap: 64px; }
+  .about-grid { grid-template-columns: minmax(0, 1fr); gap: 64px; }
   .about-media { max-width: 640px; }
-  .dish-grid { grid-template-columns: 1fr 1fr; }
-  .visit-grid { grid-template-columns: 1fr; }
-  .menu-list { grid-template-columns: 1fr; }
-  .press-grid { grid-template-columns: 1fr 1fr; }
+  .dish-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .visit-grid { grid-template-columns: minmax(0, 1fr); }
+  .menu-list { grid-template-columns: minmax(0, 1fr); }
+  .press-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 @media (max-width: 940px) {
+  .header { --hfs: min(var(--fs, 1), 1.25); }
   .menu-toggle { display: block; }
   .nav {
     position: fixed; inset: 0 0 auto 0; top: 0; padding: 90px 24px 32px; flex-direction: column; align-items: stretch; gap: 6px;
-    background: var(--green-900); transform: translateY(-105%); transition: transform .35s ease; box-shadow: 0 16px 40px rgba(0,0,0,.3);
+    background: var(--green-900); transform: translateY(-105%); box-shadow: 0 16px 40px rgba(0,0,0,.3);
+    visibility: hidden; transition: transform .35s ease, visibility 0s linear .35s;
   }
-  .nav.open { transform: none; }
-  .nav a { padding: 12px 4px; font-size: 20px; border-bottom: 1px solid rgba(255,255,255,.08); }
-  .nav .btn { margin-top: 14px; padding: 14px; border: 0; }
+  .nav.open { transform: none; visibility: visible; transition: transform .35s ease; }
+  .nav a { padding: 12px 4px; font-size: calc(20px * var(--fs, 1)); border-bottom: 1px solid rgba(255,255,255,.08); }
+  .nav .btn { margin-top: 14px; padding: 14px; border: 0; font-size: calc(18px * var(--fs, 1)); white-space: normal; }
   .logo, .menu-toggle { position: relative; z-index: 2; }
   .header .wrap { gap: 12px; }
   .lang { margin-inline-start: auto; z-index: 3; }
   .lang-btn { padding: 6px 11px; }
-  .family { grid-template-columns: 1fr; }
+  .family { grid-template-columns: minmax(0, 1fr); }
   .family img { min-height: 220px; max-height: 260px; }
-  .press-top { grid-template-columns: 1fr; }
+  .press-top { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
-  body { font-size: 17px; padding-bottom: 76px; }
+  body { font-size: calc(17px * var(--fs, 1)); padding-bottom: 76px; }
   .wrap { padding: 0 16px; }
   .section { padding: 72px 0; }
   .hero::before { background: linear-gradient(0deg, rgba(13,46,33,.96) 0%, rgba(13,46,33,.8) 55%, rgba(13,46,33,.5) 100%); }
   .hero-meta { gap: 22px; }
-  .hero-meta b { font-size: 25px; }
+  .hero-meta b { font-size: calc(25px * var(--fs, 1)); }
   .hero-actions .btn { flex: 1 1 100%; }
-  .dish-grid { grid-template-columns: 1fr; }
-  .pillars { grid-template-columns: 1fr; }
+  .dish-grid { grid-template-columns: minmax(0, 1fr); }
+  .pillars { grid-template-columns: minmax(0, 1fr); }
   .about-media .float { inset-inline-end: -6px; bottom: -28px; width: 42%; }
   .menu-panel { padding: 22px 18px; }
   .menu-tabs { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 0 16px 6px; scrollbar-width: none; }
   .menu-tabs::-webkit-scrollbar { display: none; }
-  .menu-tab { flex: none; font-size: 16px; padding: 9px 18px; }
-  .menu-item h4 { font-size: 18px; }
+  .menu-tab { flex: none; font-size: calc(16px * var(--fs, 1)); padding: 9px 18px; }
+  .menu-item h3 { font-size: calc(18px * var(--fs, 1)); }
   .served { padding: 26px 22px; }
   .family-body { padding: 30px 24px; }
   .info-card { padding: 26px 22px; }
   .map, .map iframe { min-height: 320px; }
   .seen-on .wrap { gap: 6px 20px; }
-  .seen-on span { font-size: 16px; }
+  .seen-on span { font-size: calc(16px * var(--fs, 1)); }
   .seen-on .seen-label { flex-basis: 100%; text-align: center; }
   .owner { align-items: flex-start; }
   .owner img { width: 60px; height: 60px; }
@@ -517,15 +539,20 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
   .friday-track { grid-auto-columns: 82%; margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; }
   .fcard { min-width: 0; }
   .pull-quote { padding: 40px 22px 30px; }
-  .press-grid { grid-template-columns: 1fr; gap: 16px; }
+  .press-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
   .video-modal { padding: 0; }
   .video-box { border-radius: 0; }
   .mobile-bar {
-    display: grid; grid-template-columns: 1fr 1.6fr; gap: 10px; position: fixed; inset: auto 0 0 0; z-index: 40;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: 10px; position: fixed; inset: auto 0 0 0; z-index: 40;
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(250,246,238,.97); backdrop-filter: blur(8px);
     border-top: 1px solid var(--line);
   }
-  .mobile-bar .btn { padding: 13px 10px; font-size: 16px; }
+  .mobile-bar .btn { padding: 13px 10px; font-size: calc(16px * var(--fs, 1)); }
+  .a11y-btn { bottom: 88px; }
+  .a11y-panel { bottom: 152px; max-height: calc(100dvh - 172px); }
+}
+@media (max-width: 400px) {
+  .header { --hfs: 1; }
 }
 </style>
 </head>
@@ -544,7 +571,7 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
       </svg>
       <span class="logo-text"><b>גורמה סבזי</b><small>GOURMET SABZI</small></span>
     </a>
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="ניווט ראשי" data-i18n-attr="aria-label:a.navMain">
       <a href="#about" data-i18n="nav.about">הסיפור</a>
       <a href="#signature" data-i18n="nav.dishes">המנות שלנו</a>
       <a href="#menu" data-i18n="nav.menu">תפריט</a>
@@ -589,7 +616,7 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
       </div>
       <div class="hero-meta">
         <div><b data-i18n="hero.m1v">9.2</b><span data-i18n="hero.m1l">דירוג לקוחות בוולט</span></div>
-        <div><b data-i18n="hero.m2v"><bdi dir="ltr">35–45</bdi></b><span data-i18n="hero.m2l">דקות משלוח</span></div>
+        <div><b data-i18n="hero.m2v"><bdi dir="ltr">35–45</bdi></b><span data-i18n="hero.m2l">דקות משלוח (משוער)</span></div>
         <div><b data-i18n="hero.m3v">2016</b><span data-i18n="hero.m3l">בשוק לוינסקי מאז</span></div>
       </div>
     </div>
@@ -783,47 +810,47 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
     </div>
 
     <!-- Stews -->
-    <div class="menu-panel active" id="tab-stews" role="tabpanel" aria-labelledby="t-stews">
+    <div class="menu-panel active" id="tab-stews" role="tabpanel" tabindex="0" aria-labelledby="t-stews">
       <p class="menu-note" data-i18n="note.stews">כל התבשילים מוגשים עם תוספת חמה, ירק פרסי, פיתות וסלטי הבית</p>
       <div class="menu-list">
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.sabziMeat">חורש'ט סבזי בשרי</h4><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.sabziMeatD">שבעה סוגי ירק, לימון פרסי יבש ובשר בקר</p></div>
-        <div class="menu-item"><div class="top"><h4><span data-i18n="m.sabziVeg">חורש'ט סבזי צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h4><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.sabziVegD">שבעה סוגי ירק ולימון פרסי יבש</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.mosamaMeat">חורש'ט מוסמא בשרי</h4><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.mosamaMeatD">שעועית ירוקה, פלחי תפוח אדמה, עגבניות טריות מרוסקות ובשר בקר</p></div>
-        <div class="menu-item"><div class="top"><h4><span data-i18n="m.mosamaVeg">חורש'ט מוסמא צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h4><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.mosamaVegD">שעועית ירוקה, פלחי תפוח אדמה ועגבניות טריות מרוסקות</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.bamiaMeat">חורש'ט במיה בשרי</h4><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.bamiaMeatD">במיה רכה וטרייה, עגבניות טריות מרוסקות, לימון פרסי יבש ובשר בקר</p></div>
-        <div class="menu-item"><div class="top"><h4><span data-i18n="m.bamiaVeg">חורש'ט במיה צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h4><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.bamiaVegD">במיה רכה וטרייה, עגבניות טריות מרוסקות ולימון פרסי יבש</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="dish.gondi">גונדי</h4><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.gondiD">קציצת חזה עוף וחומוס קלוי טחון מבושלת בציר עוף</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.sabziMeat">חורש'ט סבזי בשרי</h3><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.sabziMeatD">שבעה סוגי ירק, לימון פרסי יבש ובשר בקר</p></div>
+        <div class="menu-item"><div class="top"><h3><span data-i18n="m.sabziVeg">חורש'ט סבזי צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h3><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.sabziVegD">שבעה סוגי ירק ולימון פרסי יבש</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.mosamaMeat">חורש'ט מוסמא בשרי</h3><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.mosamaMeatD">שעועית ירוקה, פלחי תפוח אדמה, עגבניות טריות מרוסקות ובשר בקר</p></div>
+        <div class="menu-item"><div class="top"><h3><span data-i18n="m.mosamaVeg">חורש'ט מוסמא צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h3><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.mosamaVegD">שעועית ירוקה, פלחי תפוח אדמה ועגבניות טריות מרוסקות</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.bamiaMeat">חורש'ט במיה בשרי</h3><span class="dots"></span><span class="price">₪79</span></div><p data-i18n="m.bamiaMeatD">במיה רכה וטרייה, עגבניות טריות מרוסקות, לימון פרסי יבש ובשר בקר</p></div>
+        <div class="menu-item"><div class="top"><h3><span data-i18n="m.bamiaVeg">חורש'ט במיה צמחוני</span><svg class="leaf" viewBox="0 0 24 24" fill="currentColor" aria-label="צמחוני" data-i18n-attr="aria-label:a.veg"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg></h3><span class="dots"></span><span class="price">₪67</span></div><p data-i18n="m.bamiaVegD">במיה רכה וטרייה, עגבניות טריות מרוסקות ולימון פרסי יבש</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="dish.gondi">גונדי</h3><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.gondiD">קציצת חזה עוף וחומוס קלוי טחון מבושלת בציר עוף</p></div>
       </div>
     </div>
 
     <!-- Grill -->
-    <div class="menu-panel" id="tab-grill" role="tabpanel" aria-labelledby="t-grill">
+    <div class="menu-panel" id="tab-grill" role="tabpanel" tabindex="0" aria-labelledby="t-grill">
       <p class="menu-note" data-i18n="note.grill">מוגש עם תוספת, רוטב, ירק פרסי, פיתות וסלטי הבית</p>
       <div class="menu-list">
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.kababGrill">קבב על גריל פחמים</h4><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.kababD">קבב עסיסי שנצלה על פחמים</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.pargitGrill">פרגית על גריל פחמים</h4><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.pargitD">פרגית במרינדה, צלויה על פחמים</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.chickenOven">עוף במרינדת קינמון בתנור</h4><span class="dots"></span><span class="price">₪62</span></div><p data-i18n="m.chickenD">עוף רך במרינדת קינמון, צלוי בתנור</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.kababGrill">קבב על גריל פחמים</h3><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.kababD">קבב עסיסי שנצלה על פחמים</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.pargitGrill">פרגית על גריל פחמים</h3><span class="dots"></span><span class="price">₪65</span></div><p data-i18n="m.pargitD">פרגית במרינדה, צלויה על פחמים</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.chickenOven">עוף במרינדת קינמון בתנור</h3><span class="dots"></span><span class="price">₪62</span></div><p data-i18n="m.chickenD">עוף רך במרינדת קינמון, צלוי בתנור</p></div>
       </div>
     </div>
 
     <!-- By weight -->
-    <div class="menu-panel" id="tab-weight" role="tabpanel" aria-labelledby="t-weight">
+    <div class="menu-panel" id="tab-weight" role="tabpanel" tabindex="0" aria-labelledby="t-weight">
       <p class="menu-note" data-i18n="note.weight">לבית, לשבת או לאירוח. המחירים לפי יחידה או למשקל הבסיסי, ואפשר לבחור משקל בהזמנה.</p>
       <div class="menu-list">
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.sabziMeat">חורש'ט סבזי עם בשר</h4><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.sabziVeg">חורש'ט סבזי צמחוני</h4><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.mosamaMeat">חורש'ט מוסמא עם בשר</h4><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.mosamaVeg">חורש'ט מוסמא צמחוני</h4><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.bamiaMeat">חורש'ט במיה עם בשר</h4><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.bamiaVeg">חורש'ט במיה צמחוני</h4><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.lapehMeat">חורש'ט לפה בשרי</h4><span class="dots"></span><span class="price">₪46</span></div><p data-i18n="m.halfLiter">חצי ליטר</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.lapehVeg">חורש'ט לפה צמחוני</h4><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.halfLiter">חצי ליטר</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="dish.gondi">גונדי</h4><span class="dots"></span><span class="price">₪35</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.kabab">קבב</h4><span class="dots"></span><span class="price">₪38</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.pargit">פרגית</h4><span class="dots"></span><span class="price">₪38</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.riceColor">אורז פרסי צבעוני משתנה</h4><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.riceWhite">אורז לבן</h4><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="m.potato">תפוח אדמה בתנור</h4><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.sabziMeat">חורש'ט סבזי עם בשר</h3><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.sabziVeg">חורש'ט סבזי צמחוני</h3><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.mosamaMeat">חורש'ט מוסמא עם בשר</h3><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.mosamaVeg">חורש'ט מוסמא צמחוני</h3><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.bamiaMeat">חורש'ט במיה עם בשר</h3><span class="dots"></span><span class="price">₪44</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.bamiaVeg">חורש'ט במיה צמחוני</h3><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.lapehMeat">חורש'ט לפה בשרי</h3><span class="dots"></span><span class="price">₪46</span></div><p data-i18n="m.halfLiter">חצי ליטר</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.lapehVeg">חורש'ט לפה צמחוני</h3><span class="dots"></span><span class="price">₪33</span></div><p data-i18n="m.halfLiter">חצי ליטר</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="dish.gondi">גונדי</h3><span class="dots"></span><span class="price">₪35</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.kabab">קבב</h3><span class="dots"></span><span class="price">₪38</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.pargit">פרגית</h3><span class="dots"></span><span class="price">₪38</span></div><p data-i18n="m.perPiece">ליחידה</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.riceColor">אורז פרסי צבעוני משתנה</h3><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.riceWhite">אורז לבן</h3><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="m.potato">תפוח אדמה בתנור</h3><span class="dots"></span><span class="price">₪20</span></div><p data-i18n="m.byWeight">לפי משקל</p></div>
       </div>
     </div>
 
@@ -842,18 +869,18 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
     </div>
 
     <!-- Drinks -->
-    <div class="menu-panel" id="tab-drinks" role="tabpanel" aria-labelledby="t-drinks">
+    <div class="menu-panel" id="tab-drinks" role="tabpanel" tabindex="0" aria-labelledby="t-drinks">
       <div class="menu-list">
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.coke">קוקה קולה / קולה זירו (בקבוק זכוכית)</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.sprite">ספרייט / ספרייט זירו (בקבוק זכוכית)</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.cans">פחית קוקה קולה / קולה זירו / פאנטה</h4><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.330">330 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.prigat">פריגת תפוזים / לימונענע (בקבוק זכוכית)</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.grape">פריגת ענבים</h4><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.b500">בקבוק 500 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.fuze">פיוז טי אפרסק</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.500">500 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.flavored">מים בטעמים (אפרסק / ענבים / תפוח)</h4><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.500">500 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.water">מים מינרליים נביעות</h4><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.500">500 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.soda">קינלי סודה</h4><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.250">250 מ"ל</p></div>
-        <div class="menu-item"><div class="top"><h4 data-i18n="d.malt">בירה שחורה מאלטי</h4><span class="dots"></span><span class="price">₪11</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.coke">קוקה קולה / קולה זירו (בקבוק זכוכית)</h3><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.sprite">ספרייט / ספרייט זירו (בקבוק זכוכית)</h3><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.cans">פחית קוקה קולה / קולה זירו / פאנטה</h3><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.prigat">פריגת תפוזים / לימונענע (בקבוק זכוכית)</h3><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.330">330 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.grape">פריגת ענבים</h3><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.b500">בקבוק 500 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.fuze">פיוז טי אפרסק</h3><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.500">500 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.flavored">מים בטעמים (אפרסק / ענבים / תפוח)</h3><span class="dots"></span><span class="price">₪12</span></div><p data-i18n="d.500">500 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.water">מים מינרליים נביעות</h3><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.500">500 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.soda">קינלי סודה</h3><span class="dots"></span><span class="price">₪10</span></div><p data-i18n="d.250">250 מ"ל</p></div>
+        <div class="menu-item"><div class="top"><h3 data-i18n="d.malt">בירה שחורה מאלטי</h3><span class="dots"></span><span class="price">₪11</span></div><p data-i18n="d.330">330 מ"ל</p></div>
       </div>
     </div>
 
@@ -936,13 +963,6 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
   </div>
 </section>
 
-<div class="video-modal" id="videoModal" hidden>
-  <div class="video-box" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
-    <div class="video-bar"><span id="videoTitle"></span><button class="video-close" id="videoClose" aria-label="סגירת הסרטון" data-i18n-attr="aria-label:a.close">&times;</button></div>
-    <div class="video-frame" id="videoFrame"></div>
-  </div>
-</div>
-
 <!-- Order CTA -->
 <section class="section cta">
   <div class="wrap reveal">
@@ -960,10 +980,11 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
       </a>
     </div>
     <div class="delivery-facts">
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="cta.fact1">משלוח תוך <bdi dir="ltr">35–45</bdi> דק'</span></span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg><span data-i18n="cta.fact2">איסוף עצמי תוך <bdi dir="ltr">10–15</bdi> דק'</span></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="cta.fact1">משלוח תוך <bdi dir="ltr">35–45</bdi> דק'*</span></span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg><span data-i18n="cta.fact2">איסוף עצמי תוך <bdi dir="ltr">10–15</bdi> דק'*</span></span>
       <span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg><span data-i18n="cta.fact3">דירוג 9.2 בוולט</span></span>
     </div>
+    <p class="delivery-note" data-i18n="cta.note">* הזמנים משוערים בלבד, ועשויים להשתנות בשעות עומס ובהתאם לכמות ההזמנות.</p>
   </div>
 </section>
 
@@ -980,13 +1001,13 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
           <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="visit.hours">שעות פתיחה</span></h3>
           <span class="status" id="status" hidden></span>
           <table class="hours" id="hours">
-            <tr data-day="0"><td data-i18n="day.0">ראשון</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
-            <tr data-day="1"><td data-i18n="day.1">שני</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
-            <tr data-day="2"><td data-i18n="day.2">שלישי</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
-            <tr data-day="3"><td data-i18n="day.3">רביעי</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
-            <tr data-day="4"><td data-i18n="day.4">חמישי</td><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
-            <tr data-day="5"><td data-i18n="day.5">שישי</td><td data-i18n="hours.friday"><bdi dir="ltr">10:00–17:00</bdi></td></tr>
-            <tr data-day="6" class="closed"><td data-i18n="day.6">שבת</td><td data-i18n="hours.closed">סגור</td></tr>
+            <tr data-day="0"><th scope="row" data-i18n="day.0">ראשון</th><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="1"><th scope="row" data-i18n="day.1">שני</th><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="2"><th scope="row" data-i18n="day.2">שלישי</th><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="3"><th scope="row" data-i18n="day.3">רביעי</th><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="4"><th scope="row" data-i18n="day.4">חמישי</th><td data-i18n="hours.weekday"><bdi dir="ltr">11:00–16:30</bdi></td></tr>
+            <tr data-day="5"><th scope="row" data-i18n="day.5">שישי</th><td data-i18n="hours.friday"><bdi dir="ltr">10:00–17:00</bdi></td></tr>
+            <tr data-day="6" class="closed"><th scope="row" data-i18n="day.6">שבת</th><td data-i18n="hours.closed">סגור</td></tr>
           </table>
         </div>
         <div class="info-block">
@@ -1028,7 +1049,7 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
         </svg>
         <span class="logo-text"><b>גורמה סבזי</b><small>GOURMET SABZI</small></span>
       </a>
-      <nav>
+      <nav aria-label="ניווט בתחתית הדף" data-i18n-attr="aria-label:a.navFooter">
         <a href="#about" data-i18n="nav.about">הסיפור</a>
         <a href="#menu" data-i18n="nav.menu">תפריט</a>
         <a href="#visit" data-i18n="nav.visit">שעות ומיקום</a>
@@ -1044,15 +1065,27 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
     </div>
     <div class="bottom">
       <span>© <span id="year" class="num">2026</span> <span data-i18n="footer.addr">גורמה סבזי · לוינסקי 47, תל אביב</span></span>
+      <span class="legal">
+        <a href="accessibility.html" data-i18n="footer.access" data-i18n-attr="href:link.access">הצהרת נגישות</a>
+        <a href="privacy.html" data-i18n="footer.privacy" data-i18n-attr="href:link.privacy">מדיניות פרטיות</a>
+        <a href="terms.html" data-i18n="footer.terms" data-i18n-attr="href:link.terms">תנאי שימוש</a>
+      </span>
       <span><span data-i18n="footer.credit">עיצוב ופיתוח:</span> <a href="https://il.linkedin.com/in/eyal-barhordary" target="_blank" rel="noopener" data-i18n="footer.name">אייל ברכורדרי</a></span>
     </div>
   </div>
 </footer>
 
-<div class="mobile-bar">
+<div class="video-modal" id="videoModal" hidden>
+  <div class="video-box" role="dialog" aria-modal="true" aria-labelledby="videoTitle">
+    <div class="video-bar"><span id="videoTitle"></span><button class="video-close" id="videoClose" aria-label="סגירת הסרטון" data-i18n-attr="aria-label:a.close">&times;</button></div>
+    <div class="video-frame" id="videoFrame"></div>
+  </div>
+</div>
+
+<nav class="mobile-bar" aria-label="פעולות מהירות" data-i18n-attr="aria-label:a.navQuick">
   <a class="btn btn-green" href="tel:+97235080709" data-i18n="mobile.call">התקשרו</a>
   <a class="btn btn-gold" href="https://wolt.com/he/isr/tel-aviv/restaurant/gourmet-sabzi" target="_blank" rel="noopener" data-i18n="nav.order" data-i18n-attr="href:link.wolt">הזמנה בוולט</a>
-</div>
+</nav>
 
 <script src="i18n.js"></script>
 <script>
@@ -1069,19 +1102,38 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
     const open = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open);
   });
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  const closeNav = () => {
     nav.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
-  }));
+  };
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) { closeNav(); toggle.focus(); }
+  });
 
-  // Menu tabs
-  const tabs = document.querySelectorAll('.menu-tab');
-  tabs.forEach(tab => tab.addEventListener('click', () => {
-    tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
-    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
-    tab.setAttribute('aria-selected', 'true');
-    document.getElementById(tab.getAttribute('aria-controls')).classList.add('active');
-  }));
+  // Menu tabs (arrow keys, Home and End move between tabs, as in the ARIA tabs pattern)
+  const tabs = Array.from(document.querySelectorAll('.menu-tab'));
+  const selectTab = tab => tabs.forEach(t => {
+    const on = t === tab;
+    t.setAttribute('aria-selected', String(on));
+    t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute('aria-controls')).classList.toggle('active', on);
+  });
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => selectTab(tab));
+    tab.addEventListener('keydown', e => {
+      const rtl = document.documentElement.dir === 'rtl';
+      const next = e.key === (rtl ? 'ArrowLeft' : 'ArrowRight') ? tabs[(i + 1) % tabs.length]
+        : e.key === (rtl ? 'ArrowRight' : 'ArrowLeft') ? tabs[(i + tabs.length - 1) % tabs.length]
+        : e.key === 'Home' ? tabs[0]
+        : e.key === 'End' ? tabs[tabs.length - 1] : null;
+      if (!next) return;
+      e.preventDefault();
+      selectTab(next);
+      next.focus();
+    });
+  });
+  selectTab(tabs.find(t => t.getAttribute('aria-selected') === 'true') || tabs[0]);
 
   // Today's hours + open/closed status (Israel time)
   (function () {
@@ -1106,7 +1158,10 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
   const vFrame = document.getElementById('videoFrame');
   const vTitle = document.getElementById('videoTitle');
   let lastFocus = null;
+  // While a video is open, the rest of the page is inert (it can't be focused or clicked)
+  const setBackgroundInert = on => document.querySelectorAll('body > :not(#videoModal):not(script)').forEach(el => { el.inert = on; });
   const closeVideo = () => {
+    setBackgroundInert(false);
     vModal.hidden = true;
     vFrame.innerHTML = '';
     document.body.style.overflow = '';
@@ -1119,6 +1174,7 @@ html[lang="fa"] .dish-body .fa, html[lang="fa"] .fcard .fa { letter-spacing: 0; 
     vFrame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + el.dataset.video + '?autoplay=1&rel=0' + start +
       '" title="' + (el.dataset.title || I18n.t('video')).replace(/"/g, '&quot;') + '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
     vModal.hidden = false;
+    setBackgroundInert(true);
     document.body.style.overflow = 'hidden';
     document.getElementById('videoClose').focus();
   }));

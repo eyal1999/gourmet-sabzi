@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // Switch language before the first paint (legal.js fills in the rest)
+  (function () {
+    try {
+      var l = new URLSearchParams(location.search).get('lang') || localStorage.getItem('gs-lang');
+      if (l === 'en' || l === 'fa') { document.documentElement.lang = l; document.documentElement.dir = l === 'en' ? 'ltr' : 'rtl'; }
+    } catch (e) {}
+  })();
+</script>
+<title>הצהרת נגישות | גורמה סבזי</title>
+<meta name="description" content="הצהרת הנגישות של אתר גורמה סבזי: רמת הנגישות, ההתאמות שבוצעו, תפריט הנגישות ודרכי פנייה.">
+<link rel="icon" href="brand/favicon-32.png" sizes="32x32">
+<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<meta name="theme-color" content="#0d2e21">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;900&family=Assistant:wght@400;700&family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="a11y.css">
+<script src="a11y.js"></script>
+</head>
+<body data-page="accessibility">
+
+<header class="lheader">
+  <div class="wrap">
+    <a class="logo" href="./" data-href="./" aria-label="גורמה סבזי – לדף הבית" data-t-label="home">
+      <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <path fill="#d9a441" d="M50 28.5C58.3 25.6 59.95 17.35 55.87 10.43C48.5 13.63 44.99 21.28 50 28.5Z"/>
+        <path fill="#d9a441" d="M24 41.5C24 32.5 36 27.5 50 27.5C64 27.5 76 32.5 76 41.5Z"/>
+        <path fill="#d9a441" d="M20.25 41.5H79.75A3.25 3.25 0 0 1 79.75 48H20.25A3.25 3.25 0 0 1 20.25 41.5Z"/>
+        <path fill="#d9a441" fill-rule="evenodd" d="M22 52H78V71C78 83 69 91 57 91H43C31 91 22 83 22 71ZM23 59.2H77V60.8H23ZM24 77.2H76V78.8H24ZM31 65.5L34.4 69L31 72.5L27.6 69ZM40.5 65.5L43.9 69L40.5 72.5L37.1 69ZM50 65.5L53.4 69L50 72.5L46.6 69ZM59.5 65.5L62.9 69L59.5 72.5L56.1 69ZM69 65.5L72.4 69L69 72.5L65.6 69Z"/>
+        <path fill="#d9a441" d="M22.5 55H15.5C8.7 55 8.7 66.5 15.5 66.5H22.5V62.5H15.5C13.9 62.5 13.9 59 15.5 59H22.5ZM77.5 55H84.5C91.3 55 91.3 66.5 84.5 66.5H77.5V62.5H84.5C86.1 62.5 86.1 59 84.5 59H77.5Z"/>
+      </svg>
+      <span><b>גורמה סבזי</b><small>GOURMET SABZI</small></span>
+    </a>
+    <div class="lheader-tools">
+      <a class="back" href="./" data-href="./" data-t="back">חזרה לאתר</a>
+      <div class="langs" role="group" aria-label="שפה" data-t-label="langs">
+        <button type="button" data-lang="he" lang="he" aria-pressed="true">עברית</button>
+        <button type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+        <button type="button" data-lang="fa" lang="fa" aria-pressed="false">فارسی</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <article class="doc" lang="he" dir="rtl">
+      <h1>הצהרת נגישות</h1>
+      <p class="updated">עודכן לאחרונה: 15 באוקטובר 2026</p>
+      <p>בגורמה סבזי חשוב לנו שכל אחד ואחת יוכלו להכיר את המטבח שלנו, להזמין ולבקר אצלנו, כולל אנשים עם מוגבלות. השקענו בהנגשת האתר כדי שיהיה נוח לשימוש לכולם: עם קורא מסך, עם מקלדת בלבד או עם טקסט מוגדל.</p>
+
+      <h2>רמת הנגישות באתר</h2>
+      <p>פעלנו להנגשת האתר בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013, ולתקן הישראלי ת"י 5568, המבוסס על הנחיות WCAG 2.0 של ארגון W3C, ברמה AA. בנוסף, האתר נבנה לפי הנחיות WCAG 2.1 ברמה AA.</p>
+      <p>האתר נבדק בכלי הבדיקה האוטומטי axe ובבדיקה ידנית של ניווט במקלדת, בגדלי מסך שונים ובשלוש השפות של האתר.</p>
+
+      <h2>מה עשינו באתר</h2>
+      <ul>
+        <li>אפשר לנווט בכל האתר באמצעות המקלדת: Tab ו-Shift+Tab למעבר בין קישורים וכפתורים, Enter להפעלה, החיצים למעבר בין לשוניות התפריט, ו-Esc לסגירת חלונות ותפריטים.</li>
+        <li>קישור "דילוג לתוכן הראשי" מופיע בלחיצה הראשונה על Tab.</li>
+        <li>כל רכיב שמקבל פוקוס מסומן במסגרת בולטת.</li>
+        <li>מבנה של כותרות ואזורים (landmarks) שמקל על ההתמצאות עם קורא מסך.</li>
+        <li>טקסט חלופי לתמונות שמוסיפות מידע, ותיאור לכפתורים ולקישורים שמוצגים כסמלים.</li>
+        <li>ניגודיות של 4.5:1 לפחות בין הטקסט לרקע.</li>
+        <li>תצוגה מותאמת לטלפון, לטאבלט ולמחשב, ותמיכה בהגדלת טקסט עד 200% בלי לאבד תוכן.</li>
+        <li>האתר מכבד את הגדרת "הפחתת תנועה" של מערכת ההפעלה.</li>
+        <li>שפת הדף מוגדרת לפי השפה שנבחרה (עברית, אנגלית או פרסית), כדי שקורא המסך יקריא אותו נכון.</li>
+        <li>קורא המסך מודיע על קישורים שנפתחים בלשונית חדשה.</li>
+        <li>סרטוני הכתבות נפתחים רק בלחיצה, ולא מתנגנים מעצמם.</li>
+      </ul>
+
+      <h2>תפריט הנגישות</h2>
+      <p>בפינת המסך יש כפתור נגישות עגול, עם סמל של דמות. הוא פותח תפריט עם האפשרויות האלה:</p>
+      <ul>
+        <li>הגדלה והקטנה של הטקסט, עד 200%</li>
+        <li>ניגודיות גבוהה (עמוד שחור, טקסט לבן וקישורים בצהוב)</li>
+        <li>גווני אפור</li>
+        <li>הדגשת קישורים</li>
+        <li>גופן קריא</li>
+        <li>ריווח טקסט</li>
+        <li>עצירת אנימציות</li>
+        <li>סמן עכבר גדול</li>
+        <li>איפוס כל ההגדרות</li>
+      </ul>
+      <p>ההגדרות שבחרתם נשמרות בדפדפן שלכם, ויחולו גם בביקור הבא.</p>
+
+      <h2>חלקים שאינם בשליטתנו</h2>
+      <ul>
+        <li>סרטוני הכתבות הופקו על ידי ערוצי טלוויזיה ואתרי חדשות, ומוצגים מ-YouTube. אין לנו שליטה על התוכן שלהם, וייתכן שבחלקם אין כתוביות.</li>
+        <li>המפה מוצגת מ-Google Maps. אפשר לפתוח את הכתובת גם ב-Waze או ב-Google Maps, דרך הקישורים שליד הכתובת.</li>
+        <li>הזמנת משלוח מתבצעת באתר ובאפליקציה של וולט (Wolt), והנגישות שלהם באחריות וולט.</li>
+        <li>אות "מומלץ" מוצג מהאתר של Restaurant Guru.</li>
+      </ul>
+      <p>אם נתקלתם בקושי באחד מהם, פנו אלינו ונשמח לעזור, למשל לפרט בטלפון את המנות והמחירים.</p>
+
+      <h2>הסדרי הנגישות במסעדה</h2>
+      <p>המסעדה נמצאת ברחוב לוינסקי 47, בשוק לוינסקי בתל אביב. לפני ההגעה אפשר להתקשר אלינו, ונשמח לענות על כל שאלה לגבי ההגעה למסעדה והנגישות בה.</p>
+
+      <h2>נתקלתם בבעיה? ספרו לנו</h2>
+      <p>אנחנו ממשיכים לשפר את נגישות האתר. אם מצאתם חלק שאינו נגיש, או שיש לכם הצעה לשיפור, נשמח לשמוע. כדי שנוכל לטפל בפנייה במהירות, כתבו לנו:</p>
+      <ul>
+        <li>מה הבעיה שבה נתקלתם</li>
+        <li>באיזה עמוד או חלק באתר</li>
+        <li>באיזה דפדפן השתמשתם, ובאיזו טכנולוגיה מסייעת (אם השתמשתם)</li>
+      </ul>
+      <div class="card">
+        <p><b>פניות בנושא נגישות</b></p>
+        <ul class="contact">
+          <li>טלפון: <a href="tel:+97235080709" dir="ltr">03-508-0709</a></li>
+          <li>דוא"ל: <a href="mailto:Gormesabzirest@gmail.com">Gormesabzirest@gmail.com</a></li>
+          <li>כתובת: רחוב לוינסקי 47, תל אביב-יפו</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="doc" lang="en" dir="ltr">
+      <h1>Accessibility Statement</h1>
+      <p class="updated">Last updated: October 15, 2026</p>
+      <p>At Gourmet Sabzi, we want everyone to be able to discover our food, order and visit us, including people with disabilities. We've worked to make this website comfortable for everyone to use: with a screen reader, with a keyboard only, or with enlarged text.</p>
+
+      <h2>Accessibility level</h2>
+      <p>We've made this website accessible in line with Israel's Equal Rights for Persons with Disabilities (Service Accessibility Adjustments) Regulations, 2013, and Israeli Standard IS 5568, which is based on the W3C's WCAG 2.0 guidelines, at level AA. The site was also built to the WCAG 2.1 level AA guidelines.</p>
+      <p>The site was checked with the axe automated testing tool and by hand for keyboard navigation, at different screen sizes and in all three of its languages.</p>
+
+      <h2>What we've done</h2>
+      <ul>
+        <li>You can use the whole site with a keyboard: Tab and Shift+Tab move between links and buttons, Enter activates them, the arrow keys move between the menu tabs, and Esc closes windows and menus.</li>
+        <li>A "Skip to main content" link appears the first time you press Tab.</li>
+        <li>Whatever has keyboard focus is marked with a clear outline.</li>
+        <li>Headings and page regions (landmarks) make it easy to find your way with a screen reader.</li>
+        <li>Images that carry information have text alternatives, and buttons and links shown as icons have labels.</li>
+        <li>Text has a contrast ratio of at least 4.5:1 against its background.</li>
+        <li>The layout adapts to phones, tablets and computers, and text can be enlarged to 200% without losing content.</li>
+        <li>The site respects your system's "reduce motion" setting.</li>
+        <li>The page language is set to the language you choose (Hebrew, English or Farsi), so screen readers pronounce it correctly.</li>
+        <li>Screen readers announce links that open in a new tab.</li>
+        <li>News videos open only when you click them and never play on their own.</li>
+      </ul>
+
+      <h2>The accessibility menu</h2>
+      <p>The round accessibility button in the corner of the screen, with a figure icon, opens a menu with these options:</p>
+      <ul>
+        <li>Make text larger or smaller, up to 200%</li>
+        <li>High contrast (black page, white text and yellow links)</li>
+        <li>Grayscale</li>
+        <li>Highlight links</li>
+        <li>Readable font</li>
+        <li>Text spacing</li>
+        <li>Stop animations</li>
+        <li>Large mouse cursor</li>
+        <li>Reset all settings</li>
+      </ul>
+      <p>Your choices are saved in your browser and apply on your next visit too.</p>
+
+      <h2>Parts outside our control</h2>
+      <ul>
+        <li>The news videos were produced by TV channels and news sites and play from YouTube. We don't control their content, and some may not have captions.</li>
+        <li>The map is shown from Google Maps. You can also open the address in Waze or Google Maps using the links next to the address.</li>
+        <li>Delivery orders are placed on the Wolt website and app, whose accessibility is Wolt's responsibility.</li>
+        <li>The "Recommended" badge is shown from the Restaurant Guru website.</li>
+      </ul>
+      <p>If any of these gives you trouble, contact us and we'll be glad to help, for example by going over the dishes and prices with you by phone.</p>
+
+      <h2>Accessibility at the restaurant</h2>
+      <p>The restaurant is at 47 Levinski St, in Levinski Market, Tel Aviv. Feel free to call us before you come, and we'll gladly answer any questions about getting here and accessibility on site.</p>
+
+      <h2>Found a problem? Let us know</h2>
+      <p>We keep improving the site's accessibility. If you find something that isn't accessible, or have a suggestion, we'd like to hear it. To help us fix it quickly, please tell us:</p>
+      <ul>
+        <li>What the problem was</li>
+        <li>Which page or part of the site</li>
+        <li>Which browser you used, and which assistive technology (if any)</li>
+      </ul>
+      <div class="card">
+        <p><b>Accessibility contact</b></p>
+        <ul class="contact">
+          <li>Phone: <a href="tel:+97235080709" dir="ltr">03-508-0709</a></li>
+          <li>Email: <a href="mailto:Gormesabzirest@gmail.com">Gormesabzirest@gmail.com</a></li>
+          <li>Address: 47 Levinski St, Tel Aviv-Yafo</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="doc" lang="fa" dir="rtl">
+      <h1>بیانیهٔ دسترسی‌پذیری</h1>
+      <p class="updated">آخرین به‌روزرسانی: ۱۵ اکتبر ۲۰۲۶</p>
+      <p>در گورمه سبزی برای ما مهم است که همه، از جمله افراد دارای معلولیت، بتوانند با آشپزی ما آشنا شوند، سفارش بدهند و به ما سر بزنند. تلاش کرده‌ایم استفاده از این سایت برای همه راحت باشد: با صفحه‌خوان، فقط با صفحه‌کلید یا با متن بزرگ‌شده.</p>
+
+      <h2>سطح دسترسی‌پذیری سایت</h2>
+      <p>این سایت را مطابق با آیین‌نامهٔ برابری حقوق افراد دارای معلولیت (تطبیق‌های دسترسی‌پذیری در خدمات) مصوب ۲۰۱۳ اسرائیل و استاندارد اسرائیلی IS 5568، که بر پایهٔ رهنمودهای WCAG 2.0 کنسرسیوم W3C است، در سطح AA دسترسی‌پذیر کرده‌ایم. سایت همچنین بر اساس رهنمودهای WCAG 2.1 در سطح AA ساخته شده است.</p>
+      <p>سایت با ابزار خودکار axe و به‌صورت دستی برای پیمایش با صفحه‌کلید، در اندازه‌های مختلف صفحه و به هر سه زبان سایت بررسی شده است.</p>
+
+      <h2>کارهایی که انجام داده‌ایم</h2>
+      <ul>
+        <li>می‌توانید کل سایت را با صفحه‌کلید پیمایش کنید: Tab و Shift+Tab برای رفتن بین پیوندها و دکمه‌ها، Enter برای فعال کردن، کلیدهای جهت‌نما برای رفتن بین زبانه‌های منو، و Esc برای بستن پنجره‌ها و منوها.</li>
+        <li>پیوند «رفتن به محتوای اصلی» با اولین فشار دادن Tab ظاهر می‌شود.</li>
+        <li>هر بخشی که فوکوس صفحه‌کلید را دارد با کادری واضح مشخص می‌شود.</li>
+        <li>ساختار سرتیترها و بخش‌های صفحه (landmarks) جهت‌یابی با صفحه‌خوان را آسان می‌کند.</li>
+        <li>تصاویری که اطلاعات می‌دهند متن جایگزین دارند، و دکمه‌ها و پیوندهایی که فقط نماد دارند، برچسب دارند.</li>
+        <li>کنتراست متن با پس‌زمینه دست‌کم ۴٫۵ به ۱ است.</li>
+        <li>نمایش سایت برای تلفن، تبلت و رایانه مناسب است و می‌توان متن را تا ۲۰۰٪ بزرگ کرد، بدون اینکه محتوایی از دست برود.</li>
+        <li>سایت به تنظیم «کاهش حرکت» سیستم‌عامل شما احترام می‌گذارد.</li>
+        <li>زبان صفحه بر اساس زبانی که انتخاب می‌کنید (عبری، انگلیسی یا فارسی) تنظیم می‌شود تا صفحه‌خوان آن را درست بخواند.</li>
+        <li>صفحه‌خوان پیوندهایی را که در زبانهٔ جدید باز می‌شوند اعلام می‌کند.</li>
+        <li>ویدیوهای گزارش‌ها فقط با کلیک باز می‌شوند و خودبه‌خود پخش نمی‌شوند.</li>
+      </ul>
+
+      <h2>منوی دسترسی‌پذیری</h2>
+      <p>دکمهٔ گرد دسترسی‌پذیری در گوشهٔ صفحه، با نماد یک آدمک، منویی با این گزینه‌ها باز می‌کند:</p>
+      <ul>
+        <li>بزرگ و کوچک کردن متن، تا ۲۰۰٪</li>
+        <li>کنتراست بالا (صفحهٔ سیاه، متن سفید و پیوندهای زرد)</li>
+        <li>حالت خاکستری</li>
+        <li>برجسته کردن پیوندها</li>
+        <li>قلم خوانا</li>
+        <li>فاصله‌گذاری متن</li>
+        <li>توقف انیمیشن‌ها</li>
+        <li>نشانگر بزرگ ماوس</li>
+        <li>بازنشانی همهٔ تنظیمات</li>
+      </ul>
+      <p>تنظیماتی که انتخاب می‌کنید در مرورگر شما ذخیره می‌شود و در بازدید بعدی هم اعمال می‌شود.</p>
+
+      <h2>بخش‌هایی که در اختیار ما نیست</h2>
+      <ul>
+        <li>ویدیوهای گزارش‌ها را شبکه‌های تلویزیونی و سایت‌های خبری تهیه کرده‌اند و از YouTube پخش می‌شوند. ما کنترلی بر محتوای آن‌ها نداریم و ممکن است برخی زیرنویس نداشته باشند.</li>
+        <li>نقشه از Google Maps نمایش داده می‌شود. می‌توانید نشانی را با پیوندهای Waze یا Google Maps کنار نشانی هم باز کنید.</li>
+        <li>سفارش ارسال در سایت و اپلیکیشن وولت (Wolt) ثبت می‌شود و دسترسی‌پذیری آن‌ها بر عهدهٔ وولت است.</li>
+        <li>نشان «توصیه‌شده» از سایت Restaurant Guru نمایش داده می‌شود.</li>
+      </ul>
+      <p>اگر در هر یک از این بخش‌ها به مشکل برخوردید، با ما تماس بگیرید تا با کمال میل کمکتان کنیم؛ برای نمونه، غذاها و قیمت‌ها را تلفنی برایتان توضیح می‌دهیم.</p>
+
+      <h2>دسترسی‌پذیری در رستوران</h2>
+      <p>رستوران در خیابان لوینسکی ۴۷، در بازار لوینسکی تل‌آویو است. پیش از آمدن می‌توانید با ما تماس بگیرید؛ با کمال میل به پرسش‌هایتان دربارهٔ رسیدن به رستوران و دسترسی‌پذیری آن پاسخ می‌دهیم.</p>
+
+      <h2>به مشکلی برخوردید؟ به ما بگویید</h2>
+      <p>ما همچنان دسترسی‌پذیری سایت را بهتر می‌کنیم. اگر بخشی را پیدا کردید که دسترسی‌پذیر نیست، یا پیشنهادی دارید، خوشحال می‌شویم بشنویم. برای اینکه سریع رسیدگی کنیم، لطفاً بنویسید:</p>
+      <ul>
+        <li>به چه مشکلی برخوردید</li>
+        <li>در کدام صفحه یا بخش سایت</li>
+        <li>از کدام مرورگر و کدام فناوری کمکی (اگر استفاده می‌کنید) استفاده کردید</li>
+      </ul>
+      <div class="card">
+        <p><b>تماس دربارهٔ دسترسی‌پذیری</b></p>
+        <ul class="contact">
+          <li>تلفن: <a href="tel:+97235080709" dir="ltr">۰۳-۵۰۸-۰۷۰۹</a></li>
+          <li>ایمیل: <a href="mailto:Gormesabzirest@gmail.com">Gormesabzirest@gmail.com</a></li>
+          <li>نشانی: خیابان لوینسکی ۴۷، تل‌آویو-یافا</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="lfooter">
+  <div class="wrap">
+    <span data-t="addr">גורמה סבזי · לוינסקי 47, תל אביב</span>
+    <nav aria-label="מידע משפטי" data-t-label="legalNav">
+      <a href="accessibility.html" data-href="accessibility.html" data-t="access" aria-current="page">הצהרת נגישות</a>
+      <a href="privacy.html" data-href="privacy.html" data-t="privacy">מדיניות פרטיות</a>
+      <a href="terms.html" data-href="terms.html" data-t="terms">תנאי שימוש</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="legal.js"></script>
+</body>
+</html>

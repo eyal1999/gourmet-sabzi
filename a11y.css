@@ -1,0 +1,132 @@
+/*
+ * Gourmet Sabzi – accessibility menu and display modes (see a11y.js). Used on every page.
+ * Text size works through --fs: each page multiplies its font sizes by var(--fs, 1).
+ */
+
+/* Shared helpers */
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Keyboard focus: a dark ring inside a gold ring, visible on light and dark backgrounds */
+:root :focus-visible { outline: 3px solid #d9a441; outline-offset: 3px; box-shadow: 0 0 0 3px #0d2e21; }
+
+/* Skip link */
+.a11y-skip {
+  position: fixed; top: 12px; inset-inline-start: 12px; z-index: 1000; padding: 12px 20px; border-radius: 10px;
+  background: #fff; color: #0d2e21; font-family: "Assistant", Arial, sans-serif; font-size: 17px; font-weight: 700; line-height: 1.2;
+  text-decoration: underline; box-shadow: 0 6px 20px rgba(0,0,0,.25); transform: translateY(-200%);
+}
+.a11y-skip:focus { transform: none; }
+
+/* Button and menu */
+.a11y-ui { font-family: "Assistant", Arial, sans-serif; font-size: 16px; line-height: 1.4; }
+.a11y-ui[lang="fa"], html[lang="fa"] .a11y-skip { font-family: "Vazirmatn", Tahoma, sans-serif; }
+.a11y-btn {
+  position: fixed; z-index: 90; bottom: 20px; inset-inline-start: 20px; width: 56px; height: 56px; padding: 0;
+  display: grid; place-items: center; border-radius: 50%; border: 3px solid #fff; background: #123d2c; color: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,.32); cursor: pointer; transition: background .2s;
+}
+.a11y-btn svg { width: 32px; height: 32px; }
+.a11y-btn:hover { background: #1b5a40; }
+.a11y-btn[aria-expanded="true"] { background: #d9a441; color: #0d2e21; }
+.a11y-panel {
+  position: fixed; z-index: 91; bottom: 88px; inset-inline-start: 20px; width: min(360px, calc(100vw - 32px));
+  max-height: calc(100vh - 110px); max-height: calc(100dvh - 110px); overflow-y: auto; overscroll-behavior: contain;
+  background: #fff; color: #1f2420; border-radius: 18px; box-shadow: 0 20px 50px rgba(0,0,0,.32); padding-bottom: 16px;
+}
+.a11y-panel[hidden] { display: none; }
+.a11y-panel:focus { outline: none; box-shadow: 0 20px 50px rgba(0,0,0,.32); }
+.a11y-head {
+  position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 16px; background: #0d2e21; color: #fff;
+}
+.a11y-head h2 { margin: 0; font-family: inherit; font-size: 19px; font-weight: 700; line-height: 1.2; }
+.a11y-close {
+  flex: none; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff;
+  font-size: 26px; line-height: 1; cursor: pointer;
+}
+.a11y-close:hover { background: rgba(255,255,255,.26); }
+.a11y-size {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 16px 16px 10px; padding: 8px 8px 8px 14px;
+  border: 1.5px solid #e8e1d3; border-radius: 14px; font-weight: 700; color: #123d2c;
+}
+.a11y-ui[dir="rtl"] .a11y-size { padding: 8px 14px 8px 8px; }
+.a11y-steps { display: flex; align-items: center; gap: 6px; }
+.a11y-step {
+  width: 42px; height: 42px; border-radius: 50%; border: 2px solid #123d2c; background: #fff; color: #123d2c;
+  font-family: inherit; font-size: 24px; font-weight: 700; line-height: 1; cursor: pointer;
+}
+.a11y-step:hover { background: #e6efe8; }
+.a11y-step[aria-disabled="true"] { opacity: .4; cursor: not-allowed; }
+.a11y-size output { min-width: 54px; text-align: center; font-variant-numeric: tabular-nums; direction: ltr; }
+.a11y-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0 16px; }
+.a11y-tool {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 78px; padding: 10px 8px;
+  border: 1.5px solid #e8e1d3; border-radius: 14px; background: #faf6ee; color: #123d2c;
+  font-family: inherit; font-size: 15px; font-weight: 700; line-height: 1.25; text-align: center; cursor: pointer;
+}
+.a11y-tool:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.a11y-tool svg { width: 26px; height: 26px; flex: none; }
+.a11y-tool:hover { border-color: #1b5a40; }
+.a11y-tool[aria-pressed="true"] { background: #123d2c; border-color: #123d2c; color: #fff; }
+.a11y-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 14px; margin: 14px 16px 0; }
+.a11y-reset {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 2px; border: 0; background: none; color: #a3262f;
+  font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+}
+.a11y-reset svg { width: 18px; height: 18px; }
+.a11y-statement { color: #1b5a40; font-size: 15px; font-weight: 700; }
+
+/* High contrast: black background, white text, yellow links */
+html.a11y-contrast, html.a11y-contrast body { background: #000 !important; }
+html.a11y-contrast :where(body *:not(img, video, iframe, svg *, [class*="b-circledLeaves27"])) {
+  background-color: #000 !important; background-image: none !important; color: #fff !important;
+  border-color: #fff !important; box-shadow: none !important; text-shadow: none !important; opacity: 1 !important;
+}
+html.a11y-contrast :where(a, a *:not(svg *)) { color: #ff0 !important; }
+html.a11y-contrast *::before, html.a11y-contrast *::after { background-image: none !important; box-shadow: none !important; }
+html.a11y-contrast #b-circledLeaves27 { background-color: #fff !important; border-radius: 16px; }
+/* Selected tabs, pressed buttons and the chosen language stay recognizable */
+html.a11y-contrast :is([aria-selected="true"], [aria-pressed="true"], [aria-checked="true"]) { background-color: #fff !important; color: #000 !important; }
+html.a11y-contrast .a11y-tool[aria-pressed="true"] { background-color: #ff0 !important; color: #000 !important; }
+
+/* Grayscale (applied to the page's top-level parts so fixed elements keep working) */
+html.a11y-gray body > :not(main), html.a11y-gray main > * { filter: grayscale(100%); }
+
+/* Highlight links */
+html.a11y-links :where(a) {
+  text-decoration: underline !important; text-decoration-thickness: 2px !important; text-underline-offset: 3px !important;
+  outline: 2px dashed currentColor; outline-offset: 2px;
+}
+
+/* Readable font */
+html.a11y-font :where(body, body *:not(svg *, [class*="b-circledLeaves27"])) { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif !important; }
+html.a11y-font[lang="fa"] :where(body, body *:not(svg *, [class*="b-circledLeaves27"])) { font-family: Tahoma, Arial, sans-serif !important; }
+
+/* Text spacing (the WCAG 1.4.12 values) */
+html.a11y-spacing :where(body *:not(svg *, [class*="b-circledLeaves27"], .a11y-ui, .a11y-ui *)) {
+  letter-spacing: .12em !important; word-spacing: .16em !important; line-height: 1.8 !important;
+}
+/* Farsi letters join, so extra letter spacing would break the words apart */
+html.a11y-spacing[lang="fa"] :where(body *:not(svg *, [class*="b-circledLeaves27"], .a11y-ui, .a11y-ui *)) { letter-spacing: 0 !important; }
+
+/* Stop animations */
+html.a11y-still, html.a11y-still *, html.a11y-still *::before, html.a11y-still *::after {
+  animation: none !important; transition: none !important; scroll-behavior: auto !important;
+}
+html.a11y-still .reveal { opacity: 1 !important; transform: none !important; }
+
+/* Large cursor */
+html.a11y-cursor, html.a11y-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M9 4v35l9-8.5 6.2 14 6.3-2.8-6.2-13.7H37z' fill='%23000' stroke='%23fff' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E") 9 4, auto !important;
+}
+
+@media (max-width: 640px) {
+  .a11y-btn { bottom: 16px; inset-inline-start: 14px; width: 52px; height: 52px; }
+  .a11y-panel { bottom: 80px; inset-inline-start: 12px; width: calc(100vw - 24px); max-height: calc(100dvh - 100px); }
+}
+@media print {
+  .a11y-ui, .a11y-skip { display: none !important; }
+}
